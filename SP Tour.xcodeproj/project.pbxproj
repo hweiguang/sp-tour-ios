@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		87A75FB213BABA20007C4D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A75FB113BABA20007C4D2A /* UIKit.framework */; };
+		87A75FB413BABA20007C4D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A75FB313BABA20007C4D2A /* Foundation.framework */; };
+		87A75FB613BABA20007C4D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A75FB513BABA20007C4D2A /* CoreGraphics.framework */; };
+		87A75FBC13BABA20007C4D2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87A75FBA13BABA20007C4D2A /* InfoPlist.strings */; };
+		87A75FBF13BABA20007C4D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A75FBE13BABA20007C4D2A /* main.m */; };
+		87A75FC213BABA20007C4D2A /* SP_TourAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A75FC113BABA20007C4D2A /* SP_TourAppDelegate.m */; };
+		87A75FC513BABA20007C4D2A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A75FC313BABA20007C4D2A /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		87A75FAD13BABA20007C4D2A /* SP Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SP Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87A75FB113BABA20007C4D2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		87A75FB313BABA20007C4D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		87A75FB513BABA20007C4D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		87A75FB913BABA20007C4D2A /* SP Tour-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SP Tour-Info.plist"; sourceTree = "<group>"; };
+		87A75FBB13BABA20007C4D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		87A75FBD13BABA20007C4D2A /* SP Tour-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SP Tour-Prefix.pch"; sourceTree = "<group>"; };
+		87A75FBE13BABA20007C4D2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		87A75FC013BABA20007C4D2A /* SP_TourAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SP_TourAppDelegate.h; sourceTree = "<group>"; };
+		87A75FC113BABA20007C4D2A /* SP_TourAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SP_TourAppDelegate.m; sourceTree = "<group>"; };
+		87A75FC413BABA20007C4D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		87A75FAA13BABA20007C4D2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87A75FB213BABA20007C4D2A /* UIKit.framework in Frameworks */,
+				87A75FB413BABA20007C4D2A /* Foundation.framework in Frameworks */,
+				87A75FB613BABA20007C4D2A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		87A75FA213BABA20007C4D2A = {
+			isa = PBXGroup;
+			children = (
+				87A75FB713BABA20007C4D2A /* SP Tour */,
+				87A75FB013BABA20007C4D2A /* Frameworks */,
+				87A75FAE13BABA20007C4D2A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		87A75FAE13BABA20007C4D2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87A75FAD13BABA20007C4D2A /* SP Tour.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87A75FB013BABA20007C4D2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87A75FB113BABA20007C4D2A /* UIKit.framework */,
+				87A75FB313BABA20007C4D2A /* Foundation.framework */,
+				87A75FB513BABA20007C4D2A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		87A75FB713BABA20007C4D2A /* SP Tour */ = {
+			isa = PBXGroup;
+			children = (
+				87A75FC013BABA20007C4D2A /* SP_TourAppDelegate.h */,
+				87A75FC113BABA20007C4D2A /* SP_TourAppDelegate.m */,
+				87A75FB813BABA20007C4D2A /* Supporting Files */,
+			);
+			path = "SP Tour";
+			sourceTree = "<group>";
+		};
+		87A75FB813BABA20007C4D2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87A75FC313BABA20007C4D2A /* MainWindow.xib */,
+				87A75FB913BABA20007C4D2A /* SP Tour-Info.plist */,
+				87A75FBA13BABA20007C4D2A /* InfoPlist.strings */,
+				87A75FBD13BABA20007C4D2A /* SP Tour-Prefix.pch */,
+				87A75FBE13BABA20007C4D2A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		87A75FAC13BABA20007C4D2A /* SP Tour */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87A75FC813BABA20007C4D2A /* Build configuration list for PBXNativeTarget "SP Tour" */;
+			buildPhases = (
+				87A75FA913BABA20007C4D2A /* Sources */,
+				87A75FAA13BABA20007C4D2A /* Frameworks */,
+				87A75FAB13BABA20007C4D2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SP Tour";
+			productName = "SP Tour";
+			productReference = 87A75FAD13BABA20007C4D2A /* SP Tour.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		87A75FA413BABA20007C4D2A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 87A75FA713BABA20007C4D2A /* Build configuration list for PBXProject "SP Tour" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 87A75FA213BABA20007C4D2A;
+			productRefGroup = 87A75FAE13BABA20007C4D2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87A75FAC13BABA20007C4D2A /* SP Tour */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		87A75FAB13BABA20007C4D2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87A75FBC13BABA20007C4D2A /* InfoPlist.strings in Resources */,
+				87A75FC513BABA20007C4D2A /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		87A75FA913BABA20007C4D2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87A75FBF13BABA20007C4D2A /* main.m in Sources */,
+				87A75FC213BABA20007C4D2A /* SP_TourAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		87A75FBA13BABA20007C4D2A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87A75FBB13BABA20007C4D2A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		87A75FC313BABA20007C4D2A /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87A75FC413BABA20007C4D2A /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		87A75FC613BABA20007C4D2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		87A75FC713BABA20007C4D2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		87A75FC913BABA20007C4D2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SP Tour/SP Tour-Prefix.pch";
+				INFOPLIST_FILE = "SP Tour/SP Tour-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		87A75FCA13BABA20007C4D2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SP Tour/SP Tour-Prefix.pch";
+				INFOPLIST_FILE = "SP Tour/SP Tour-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		87A75FA713BABA20007C4D2A /* Build configuration list for PBXProject "SP Tour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87A75FC613BABA20007C4D2A /* Debug */,
+				87A75FC713BABA20007C4D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87A75FC813BABA20007C4D2A /* Build configuration list for PBXNativeTarget "SP Tour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87A75FC913BABA20007C4D2A /* Debug */,
+				87A75FCA13BABA20007C4D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 87A75FA413BABA20007C4D2A /* Project object */;
+}
