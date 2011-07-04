@@ -25,29 +25,45 @@
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    sm3dar = [[SM3DARController alloc]init];
+	sm3dar.view.backgroundColor = [UIColor blackColor];
+	sm3dar.delegate = self;
+	sm3dar.camera.showsCameraControls = NO;
+	[self.view addSubview:sm3dar.view];
+    [sm3dar startCamera];
+	[[UIApplication sharedApplication] setStatusBarHidden:YES];
+    /*
+     [sm3dar addPointOfInterestWithLatitude:1.311464
+     longitude:103.778551
+     altitude:0
+     title:@"Title" 
+     subtitle:@"Subtitle" 
+     markerViewClass:[RoundedLabelMarkerView class]
+     properties:nil];
+     */
+    SM3DARPointOfInterest *poi = [[sm3dar initPointOfInterestWithLatitude:1.311464 
+                                                                longitude:103.778551
+                                                                 altitude:0
+                                                                    title:@"Title"
+                                                                 subtitle:@"distance" 
+                                                          markerViewClass:[SM3DARMarkerView class] 
+                                                               properties:nil] autorelease];
+    SM3DARMarkerView *poiView = [[[SM3DARMarkerView alloc] initWithPointOfInterest:poi] autorelease];
+    [sm3dar addPoint:poiView.poi];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void)sm3darLogoWasTapped:(SM3DARController *)sm3dar {
+    return;
 }
 
 - (IBAction)closeARView:(id)sender {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self dismissModalViewControllerAnimated:YES];
 }
 

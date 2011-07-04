@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-
-@interface RootViewController : UITableViewController {
-    
+@interface RootViewController : UITableViewController <CLLocationManagerDelegate> {
+    CLLocationManager *locationManager;
 }
 
 - (void)AR:(id)sender;
