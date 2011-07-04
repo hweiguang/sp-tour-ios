@@ -72,6 +72,7 @@
                                                           ymax:1.316343
                                               spatialReference:self.mapView.spatialReference];
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
+    [self.mapView.gps start];
 }
 
 - (void)viewDidUnload

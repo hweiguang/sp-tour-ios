@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		871FFCD613BB17F1009EF040 /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 871FFCD513BB17F1009EF040 /* libArcGIS.a */; };
-		871FFCDD13BB189E009EF040 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871FFCD913BB189E009EF040 /* CoreLocation.framework */; };
-		871FFCDE13BB189E009EF040 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871FFCDB13BB189E009EF040 /* QuartzCore.framework */; };
+		872029B913BC5312004FC801 /* GpsDisplay.png in Resources */ = {isa = PBXBuildFile; fileRef = 872029B513BC5312004FC801 /* GpsDisplay.png */; };
+		872029BA13BC5312004FC801 /* GpsDisplay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 872029B613BC5312004FC801 /* GpsDisplay@2x.png */; };
+		872029BB13BC5312004FC801 /* GpsDisplayHeading.png in Resources */ = {isa = PBXBuildFile; fileRef = 872029B713BC5312004FC801 /* GpsDisplayHeading.png */; };
+		872029BC13BC5312004FC801 /* GpsDisplayHeading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 872029B813BC5312004FC801 /* GpsDisplayHeading@2x.png */; };
 		8748A68913BB107500D0C039 /* CompassHeading.png in Resources */ = {isa = PBXBuildFile; fileRef = 8748A68513BB107500D0C039 /* CompassHeading.png */; };
 		8748A68A13BB107500D0C039 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8748A68613BB107500D0C039 /* Default-Portrait~ipad.png */; };
 		8748A68B13BB107500D0C039 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8748A68713BB107500D0C039 /* Default.png */; };
@@ -38,22 +40,42 @@
 		879094AC13BB1CB4005092AE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879094AB13BB1CB4005092AE /* SystemConfiguration.framework */; };
 		879094AE13BB1CBD005092AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879094AD13BB1CBD005092AE /* MobileCoreServices.framework */; };
 		879094B013BB1CCB005092AE /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 879094AF13BB1CCB005092AE /* libz.1.2.3.dylib */; };
-		87A75FB213BABA20007C4D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A75FB113BABA20007C4D2A /* UIKit.framework */; };
-		87A75FB413BABA20007C4D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A75FB313BABA20007C4D2A /* Foundation.framework */; };
-		87A75FB613BABA20007C4D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A75FB513BABA20007C4D2A /* CoreGraphics.framework */; };
 		87A75FBC13BABA20007C4D2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87A75FBA13BABA20007C4D2A /* InfoPlist.strings */; };
 		87A75FBF13BABA20007C4D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A75FBE13BABA20007C4D2A /* main.m */; };
 		87A75FC213BABA20007C4D2A /* SP_TourAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A75FC113BABA20007C4D2A /* SP_TourAppDelegate.m */; };
 		87A75FC513BABA20007C4D2A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A75FC313BABA20007C4D2A /* MainWindow.xib */; };
+		87A8341B13C163B20078723A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A8341913C163B20078723A /* DetailViewController.m */; };
+		87A8341C13C163B20078723A /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A8341A13C163B20078723A /* DetailViewController.xib */; };
+		87A8342E13C1693F0078723A /* POIObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A8342D13C1693F0078723A /* POIObjects.m */; };
+		87DAC75513BC06B800F1BD6C /* 3dar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74313BC06B800F1BD6C /* 3dar.plist */; };
+		87DAC75613BC06B800F1BD6C /* 3dar_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74613BC06B800F1BD6C /* 3dar_logo.png */; };
+		87DAC75713BC06B800F1BD6C /* 3dar_marker_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74713BC06B800F1BD6C /* 3dar_marker_icon1.png */; };
+		87DAC75813BC06B800F1BD6C /* 3dar_marker_icon1_focused.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74813BC06B800F1BD6C /* 3dar_marker_icon1_focused.png */; };
+		87DAC75913BC06B800F1BD6C /* 3dar_pano_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74913BC06B800F1BD6C /* 3dar_pano_bg.png */; };
+		87DAC75A13BC06B800F1BD6C /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74A13BC06B800F1BD6C /* bubble.png */; };
+		87DAC75B13BC06B800F1BD6C /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74C13BC06B800F1BD6C /* cube.obj */; };
+		87DAC75C13BC06B800F1BD6C /* moebius.obj in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74D13BC06B800F1BD6C /* moebius.obj */; };
+		87DAC75D13BC06B800F1BD6C /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74E13BC06B800F1BD6C /* sphere.obj */; };
+		87DAC75E13BC06B800F1BD6C /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC74F13BC06B800F1BD6C /* star.obj */; };
+		87DAC75F13BC06B800F1BD6C /* ufo.obj in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC75013BC06B800F1BD6C /* ufo.obj */; };
+		87DAC76013BC06B800F1BD6C /* lib3DAR_v0_9_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC75213BC06B800F1BD6C /* lib3DAR_v0_9_6.a */; };
+		87DAC76113BC06B900F1BD6C /* SM3DAR_keys.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87DAC75413BC06B800F1BD6C /* SM3DAR_keys.txt */; };
+		87DAC76B13BC06FC00F1BD6C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76513BC06FC00F1BD6C /* CoreMotion.framework */; };
+		87DAC76C13BC06FC00F1BD6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76713BC06FC00F1BD6C /* MapKit.framework */; };
+		87DAC76D13BC06FC00F1BD6C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76813BC06FC00F1BD6C /* OpenGLES.framework */; };
+		87DAC76E13BC073A00F1BD6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76313BC06FC00F1BD6C /* CoreGraphics.framework */; };
+		87DAC76F13BC073A00F1BD6C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76413BC06FC00F1BD6C /* CoreLocation.framework */; };
+		87DAC77013BC073A00F1BD6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76613BC06FC00F1BD6C /* Foundation.framework */; };
+		87DAC77113BC073A00F1BD6C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76913BC06FC00F1BD6C /* QuartzCore.framework */; };
+		87DAC77213BC073A00F1BD6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DAC76A13BC06FC00F1BD6C /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		871FFCD513BB17F1009EF040 /* libArcGIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArcGIS.a; path = ../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/libArcGIS.a; sourceTree = "<group>"; };
-		871FFCD813BB189E009EF040 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		871FFCD913BB189E009EF040 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		871FFCDA13BB189E009EF040 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		871FFCDB13BB189E009EF040 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		871FFCDC13BB189E009EF040 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		872029B513BC5312004FC801 /* GpsDisplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GpsDisplay.png; path = Resources/GpsDisplay.png; sourceTree = "<group>"; };
+		872029B613BC5312004FC801 /* GpsDisplay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GpsDisplay@2x.png"; path = "Resources/GpsDisplay@2x.png"; sourceTree = "<group>"; };
+		872029B713BC5312004FC801 /* GpsDisplayHeading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GpsDisplayHeading.png; path = Resources/GpsDisplayHeading.png; sourceTree = "<group>"; };
+		872029B813BC5312004FC801 /* GpsDisplayHeading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GpsDisplayHeading@2x.png"; path = "Resources/GpsDisplayHeading@2x.png"; sourceTree = "<group>"; };
 		8748A68513BB107500D0C039 /* CompassHeading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CompassHeading.png; path = Resources/CompassHeading.png; sourceTree = "<group>"; };
 		8748A68613BB107500D0C039 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "Resources/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		8748A68713BB107500D0C039 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
@@ -102,9 +124,6 @@
 		879094AD13BB1CBD005092AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		879094AF13BB1CCB005092AE /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		87A75FAD13BABA20007C4D2A /* SP Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SP Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		87A75FB113BABA20007C4D2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		87A75FB313BABA20007C4D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		87A75FB513BABA20007C4D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		87A75FB913BABA20007C4D2A /* SP Tour-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SP Tour-Info.plist"; sourceTree = "<group>"; };
 		87A75FBB13BABA20007C4D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87A75FBD13BABA20007C4D2A /* SP Tour-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SP Tour-Prefix.pch"; sourceTree = "<group>"; };
@@ -112,6 +131,33 @@
 		87A75FC013BABA20007C4D2A /* SP_TourAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SP_TourAppDelegate.h; sourceTree = "<group>"; };
 		87A75FC113BABA20007C4D2A /* SP_TourAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SP_TourAppDelegate.m; sourceTree = "<group>"; };
 		87A75FC413BABA20007C4D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		87A8341813C163B20078723A /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		87A8341913C163B20078723A /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		87A8341A13C163B20078723A /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		87A8342C13C1693F0078723A /* POIObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIObjects.h; sourceTree = "<group>"; };
+		87A8342D13C1693F0078723A /* POIObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIObjects.m; sourceTree = "<group>"; };
+		87DAC74313BC06B800F1BD6C /* 3dar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3dar.plist; sourceTree = "<group>"; };
+		87DAC74613BC06B800F1BD6C /* 3dar_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_logo.png; sourceTree = "<group>"; };
+		87DAC74713BC06B800F1BD6C /* 3dar_marker_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon1.png; sourceTree = "<group>"; };
+		87DAC74813BC06B800F1BD6C /* 3dar_marker_icon1_focused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon1_focused.png; sourceTree = "<group>"; };
+		87DAC74913BC06B800F1BD6C /* 3dar_pano_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_pano_bg.png; sourceTree = "<group>"; };
+		87DAC74A13BC06B800F1BD6C /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
+		87DAC74C13BC06B800F1BD6C /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
+		87DAC74D13BC06B800F1BD6C /* moebius.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = moebius.obj; sourceTree = "<group>"; };
+		87DAC74E13BC06B800F1BD6C /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		87DAC74F13BC06B800F1BD6C /* star.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
+		87DAC75013BC06B800F1BD6C /* ufo.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ufo.obj; sourceTree = "<group>"; };
+		87DAC75213BC06B800F1BD6C /* lib3DAR_v0_9_6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = lib3DAR_v0_9_6.a; sourceTree = "<group>"; };
+		87DAC75313BC06B800F1BD6C /* SM3DAR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SM3DAR.h; sourceTree = "<group>"; };
+		87DAC75413BC06B800F1BD6C /* SM3DAR_keys.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SM3DAR_keys.txt; sourceTree = "<group>"; };
+		87DAC76313BC06FC00F1BD6C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		87DAC76413BC06FC00F1BD6C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		87DAC76513BC06FC00F1BD6C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		87DAC76613BC06FC00F1BD6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		87DAC76713BC06FC00F1BD6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		87DAC76813BC06FC00F1BD6C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		87DAC76913BC06FC00F1BD6C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		87DAC76A13BC06FC00F1BD6C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,15 +166,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				879094B013BB1CCB005092AE /* libz.1.2.3.dylib in Frameworks */,
+				87DAC76E13BC073A00F1BD6C /* CoreGraphics.framework in Frameworks */,
+				87DAC76F13BC073A00F1BD6C /* CoreLocation.framework in Frameworks */,
+				87DAC76B13BC06FC00F1BD6C /* CoreMotion.framework in Frameworks */,
+				87DAC77013BC073A00F1BD6C /* Foundation.framework in Frameworks */,
+				87DAC76C13BC06FC00F1BD6C /* MapKit.framework in Frameworks */,
+				87DAC76D13BC06FC00F1BD6C /* OpenGLES.framework in Frameworks */,
+				87DAC77113BC073A00F1BD6C /* QuartzCore.framework in Frameworks */,
+				87DAC77213BC073A00F1BD6C /* UIKit.framework in Frameworks */,
 				879094AE13BB1CBD005092AE /* MobileCoreServices.framework in Frameworks */,
 				879094AC13BB1CB4005092AE /* SystemConfiguration.framework in Frameworks */,
 				879094AA13BB1CAC005092AE /* CFNetwork.framework in Frameworks */,
-				87A75FB613BABA20007C4D2A /* CoreGraphics.framework in Frameworks */,
-				871FFCDD13BB189E009EF040 /* CoreLocation.framework in Frameworks */,
-				87A75FB413BABA20007C4D2A /* Foundation.framework in Frameworks */,
-				871FFCDE13BB189E009EF040 /* QuartzCore.framework in Frameworks */,
-				87A75FB213BABA20007C4D2A /* UIKit.framework in Frameworks */,
 				871FFCD613BB17F1009EF040 /* libArcGIS.a in Frameworks */,
+				87DAC76013BC06B800F1BD6C /* lib3DAR_v0_9_6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +188,10 @@
 		8748A68313BB103F00D0C039 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				872029B513BC5312004FC801 /* GpsDisplay.png */,
+				872029B613BC5312004FC801 /* GpsDisplay@2x.png */,
+				872029B713BC5312004FC801 /* GpsDisplayHeading.png */,
+				872029B813BC5312004FC801 /* GpsDisplayHeading@2x.png */,
 				8748A68513BB107500D0C039 /* CompassHeading.png */,
 				8748A68613BB107500D0C039 /* Default-Portrait~ipad.png */,
 				8748A68713BB107500D0C039 /* Default.png */,
@@ -154,6 +208,7 @@
 				8748A68F13BB128000D0C039 /* RootViewController.xib */,
 				8748A6D513BB153600D0C039 /* ARViewController.xib */,
 				8748A6D013BB151500D0C039 /* MapViewController.xib */,
+				87A8341A13C163B20078723A /* DetailViewController.xib */,
 			);
 			name = "XIB Files";
 			sourceTree = "<group>";
@@ -204,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				87A75FB713BABA20007C4D2A /* SP Tour */,
+				87DAC74213BC06B800F1BD6C /* 3DAR */,
 				8790942713BB1C62005092AE /* ASIHTTPRequest */,
 				8790947C13BB1C62005092AE /* TBXML */,
 				8748A68313BB103F00D0C039 /* Resources */,
@@ -223,19 +279,19 @@
 		87A75FB013BABA20007C4D2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				879094AF13BB1CCB005092AE /* libz.1.2.3.dylib */,
+				87DAC76313BC06FC00F1BD6C /* CoreGraphics.framework */,
+				87DAC76413BC06FC00F1BD6C /* CoreLocation.framework */,
+				87DAC76513BC06FC00F1BD6C /* CoreMotion.framework */,
+				87DAC76613BC06FC00F1BD6C /* Foundation.framework */,
+				87DAC76713BC06FC00F1BD6C /* MapKit.framework */,
+				87DAC76813BC06FC00F1BD6C /* OpenGLES.framework */,
+				87DAC76913BC06FC00F1BD6C /* QuartzCore.framework */,
+				87DAC76A13BC06FC00F1BD6C /* UIKit.framework */,
 				879094AD13BB1CBD005092AE /* MobileCoreServices.framework */,
 				879094AB13BB1CB4005092AE /* SystemConfiguration.framework */,
 				879094A913BB1CAC005092AE /* CFNetwork.framework */,
-				871FFCD813BB189E009EF040 /* CoreGraphics.framework */,
-				871FFCD913BB189E009EF040 /* CoreLocation.framework */,
-				871FFCDA13BB189E009EF040 /* Foundation.framework */,
-				871FFCDB13BB189E009EF040 /* QuartzCore.framework */,
-				871FFCDC13BB189E009EF040 /* UIKit.framework */,
+				879094AF13BB1CCB005092AE /* libz.1.2.3.dylib */,
 				871FFCD513BB17F1009EF040 /* libArcGIS.a */,
-				87A75FB113BABA20007C4D2A /* UIKit.framework */,
-				87A75FB313BABA20007C4D2A /* Foundation.framework */,
-				87A75FB513BABA20007C4D2A /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,6 +301,8 @@
 			children = (
 				87A75FC013BABA20007C4D2A /* SP_TourAppDelegate.h */,
 				87A75FC113BABA20007C4D2A /* SP_TourAppDelegate.m */,
+				87A8342C13C1693F0078723A /* POIObjects.h */,
+				87A8342D13C1693F0078723A /* POIObjects.m */,
 				8748A68D13BB128000D0C039 /* RootViewController.h */,
 				8748A68E13BB128000D0C039 /* RootViewController.m */,
 				8790942413BB1B8F005092AE /* CustomTableViewCell.h */,
@@ -253,6 +311,8 @@
 				8748A6D413BB153600D0C039 /* ARViewController.m */,
 				8748A6CE13BB151500D0C039 /* MapViewController.h */,
 				8748A6CF13BB151500D0C039 /* MapViewController.m */,
+				87A8341813C163B20078723A /* DetailViewController.h */,
+				87A8341913C163B20078723A /* DetailViewController.m */,
 				87A75FB813BABA20007C4D2A /* Supporting Files */,
 				8748A69213BB128D00D0C039 /* XIB Files */,
 			);
@@ -269,6 +329,60 @@
 				87A75FBE13BABA20007C4D2A /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87DAC74213BC06B800F1BD6C /* 3DAR */ = {
+			isa = PBXGroup;
+			children = (
+				87DAC74313BC06B800F1BD6C /* 3dar.plist */,
+				87DAC74413BC06B800F1BD6C /* Assets */,
+				87DAC75113BC06B800F1BD6C /* Lib */,
+				87DAC75313BC06B800F1BD6C /* SM3DAR.h */,
+				87DAC75413BC06B800F1BD6C /* SM3DAR_keys.txt */,
+			);
+			name = 3DAR;
+			path = "SP Tour/3DAR";
+			sourceTree = "<group>";
+		};
+		87DAC74413BC06B800F1BD6C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				87DAC74513BC06B800F1BD6C /* images */,
+				87DAC74B13BC06B800F1BD6C /* models */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		87DAC74513BC06B800F1BD6C /* images */ = {
+			isa = PBXGroup;
+			children = (
+				87DAC74613BC06B800F1BD6C /* 3dar_logo.png */,
+				87DAC74713BC06B800F1BD6C /* 3dar_marker_icon1.png */,
+				87DAC74813BC06B800F1BD6C /* 3dar_marker_icon1_focused.png */,
+				87DAC74913BC06B800F1BD6C /* 3dar_pano_bg.png */,
+				87DAC74A13BC06B800F1BD6C /* bubble.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		87DAC74B13BC06B800F1BD6C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				87DAC74C13BC06B800F1BD6C /* cube.obj */,
+				87DAC74D13BC06B800F1BD6C /* moebius.obj */,
+				87DAC74E13BC06B800F1BD6C /* sphere.obj */,
+				87DAC74F13BC06B800F1BD6C /* star.obj */,
+				87DAC75013BC06B800F1BD6C /* ufo.obj */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		87DAC75113BC06B800F1BD6C /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				87DAC75213BC06B800F1BD6C /* lib3DAR_v0_9_6.a */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +443,23 @@
 				8748A6D713BB153600D0C039 /* ARViewController.xib in Resources */,
 				8790940913BB18F2005092AE /* esriLogo.png in Resources */,
 				8790940A13BB18F2005092AE /* esriLogo@2x.png in Resources */,
+				87DAC75513BC06B800F1BD6C /* 3dar.plist in Resources */,
+				87DAC75613BC06B800F1BD6C /* 3dar_logo.png in Resources */,
+				87DAC75713BC06B800F1BD6C /* 3dar_marker_icon1.png in Resources */,
+				87DAC75813BC06B800F1BD6C /* 3dar_marker_icon1_focused.png in Resources */,
+				87DAC75913BC06B800F1BD6C /* 3dar_pano_bg.png in Resources */,
+				87DAC75A13BC06B800F1BD6C /* bubble.png in Resources */,
+				87DAC75B13BC06B800F1BD6C /* cube.obj in Resources */,
+				87DAC75C13BC06B800F1BD6C /* moebius.obj in Resources */,
+				87DAC75D13BC06B800F1BD6C /* sphere.obj in Resources */,
+				87DAC75E13BC06B800F1BD6C /* star.obj in Resources */,
+				87DAC75F13BC06B800F1BD6C /* ufo.obj in Resources */,
+				87DAC76113BC06B900F1BD6C /* SM3DAR_keys.txt in Resources */,
+				872029B913BC5312004FC801 /* GpsDisplay.png in Resources */,
+				872029BA13BC5312004FC801 /* GpsDisplay@2x.png in Resources */,
+				872029BB13BC5312004FC801 /* GpsDisplayHeading.png in Resources */,
+				872029BC13BC5312004FC801 /* GpsDisplayHeading@2x.png in Resources */,
+				87A8341C13C163B20078723A /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +487,8 @@
 				8790949113BB1C62005092AE /* Reachability.m in Sources */,
 				879094A713BB1C62005092AE /* NSDataAdditions.m in Sources */,
 				879094A813BB1C62005092AE /* TBXML.m in Sources */,
+				87A8341B13C163B20078723A /* DetailViewController.m in Sources */,
+				87A8342E13C1693F0078723A /* POIObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,10 +560,12 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib\"",
 					"$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib",
+					"\"$(SRCROOT)/SP Tour/3DAR/Lib\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
@@ -451,10 +586,12 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib\"",
 					"$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib",
+					"\"$(SRCROOT)/SP Tour/3DAR/Lib\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";

@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-
-@interface CustomTableViewCell : UITableViewCell {
-    
+@interface CustomCellforListVC : UITableViewCell {
+    UILabel *primaryLabel;
+    UILabel *secondaryLabel;
+    UILabel *distanceLabel;
 }
+@property(nonatomic,retain) UILabel *primaryLabel;
+@property(nonatomic,retain) UILabel *secondaryLabel;
+@property(nonatomic,retain) UILabel *distanceLabel;
 
 @end

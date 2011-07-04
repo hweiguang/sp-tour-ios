@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SM3DAR.h"
 
-
-@interface ARViewController : UIViewController {
-    
+@interface ARViewController : UIViewController <SM3DARDelegate> {
+    SM3DARController *sm3dar;
 }
 
 - (IBAction)closeARView:(id)sender;
