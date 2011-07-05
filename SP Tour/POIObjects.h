@@ -10,7 +10,19 @@
 
 
 @interface POIObjects : NSObject {
-    
+    NSString *title; //Title for callout
+	NSString *subtitle; //Subtitle for callout
+	NSNumber *lat; //Latitude for callout
+	NSNumber *lon; //Longitude for callout
+    NSString *description; //Description to be display in detail view
+    NSString *photos; //Photo to be display in detail view
 }
+
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *subtitle;
+@property (nonatomic, retain) NSNumber *lat;
+@property (nonatomic, retain) NSNumber *lon;
+@property (nonatomic, retain) NSString *description;
+@property (nonatomic, retain) NSString *photos;
 
 @end

@@ -11,9 +11,14 @@
 
 @interface RootViewController : UITableViewController <CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
+    NSMutableArray *data;
+    double userlat;
+    double userlon;
+    CLLocation *userlocation;
 }
 
 - (void)AR:(id)sender;
 - (void)MapView:(id)sender;
+- (void)loadData;
 
 @end
