@@ -19,4 +19,6 @@
 @property (nonatomic, retain) AGSGraphicsLayer *graphicsLayer;
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
 
+- (void)loadPoints;
+
 @end
