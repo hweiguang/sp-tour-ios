@@ -9,6 +9,9 @@
 #import "MapViewController.h"
 #import "POIObjects.h"
 #import "SP_TourAppDelegate.h"
+#import "DetailViewController.h"
+#import "RootViewController.h"
+#import "Constants.h"
 
 @implementation MapViewController
 
@@ -16,24 +19,16 @@
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)dealloc
 {
-    self.mapView = nil;
-    self.graphicsLayer = nil;
-    self.CalloutTemplate = nil;
+    if (!self.mapView)
+        self.mapView = nil;
+    if (!self.graphicsLayer)
+        self.graphicsLayer = nil;
+    if (!self.CalloutTemplate)
+        self.CalloutTemplate = nil;
     [super dealloc];
 }
-
-#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
@@ -46,7 +41,7 @@
     
     //create and add a base layer to map
 	AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc]
-										   initWithURL:[NSURL URLWithString:@"http://www.whereto.sg/WMGIS01/rest/services/WhereTo/Island_Base/MapServer"]];
+										   initWithURL:[NSURL URLWithString:kMapServiceURL]];
 	[self.mapView addMapLayer:tiledLayer withName:@"SP Map"];
     [tiledLayer release];
     
@@ -67,14 +62,15 @@
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     [self loadPoints];
-    [self.mapView.gps start];
+    //Showing location in iPad version will crash the app
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        [self.mapView.gps start];
 }
 
 - (void)loadPoints {    
-    
     SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    // Getting category set from appDelegate
-    NSMutableArray *data = [[NSMutableArray alloc] initWithArray:appDelegate.data];
+    
+    NSMutableArray *data = appDelegate.data;
     
     //use these to calculate extent of results
     double xmin = DBL_MAX;
@@ -117,11 +113,13 @@
         marker.yoffset = -16;
         marker.hotspot = CGPointMake(-9, -11);
         
-        //creating an attribute for the callOuts
+        //creating an attribute for the callouts
         NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:aPOIObjects.title forKey:@"title"];
         [attribs setValue:aPOIObjects.subtitle forKey:@"subtitle"];
         [attribs setValue:aPOIObjects.description forKey:@"description"];
         [attribs setValue:aPOIObjects.photos forKey:@"photos"];
+        [attribs setValue:aPOIObjects.panorama forKey:@"panorama"];
+        [attribs setValue:aPOIObjects.livecam forKey:@"livecam"];
         
         //set the title and subtitle of the callout
         self.CalloutTemplate.titleTemplate = @"${title}";
@@ -136,11 +134,12 @@
         //add the graphic to the graphics layer
         [self.graphicsLayer addGraphic:graphic];
         
+        //Redraw map
+        [self.graphicsLayer dataChanged];
+        
         //release the graphic
         [graphic release];
-    }
-    //Redraw map
-    [self.graphicsLayer dataChanged];
+    }    
     
     AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
                                                                  ymin:ymin
@@ -148,12 +147,40 @@
                                                                  ymax:ymax
                                                      spatialReference:self.mapView.spatialReference];
     [extent expandByFactor:1.5];
-    [self.mapView zoomToEnvelope:extent animated:NO];
+    [self.mapView zoomToEnvelope:extent animated:YES];
+}
+
+- (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic {
+    
+    NSDictionary *attribs =[NSDictionary dictionaryWithDictionary:graphic.attributes];
+    
+    NSString *title = [attribs valueForKey:@"title"];
+    NSString *description = [attribs valueForKey:@"description"];
+    NSString *photos = [attribs valueForKey:@"photos"];
+    NSString *panorama = [attribs valueForKey:@"panorama"];
+    NSString *livecam = [attribs valueForKey:@"livecam"];
+    
+    DetailViewController *detailViewController = [[DetailViewController alloc]
+                                                  initWithNibName:@"DetailViewController" bundle:nil];
+    detailViewController.title = title;
+    detailViewController.description = description;
+    detailViewController.panorama = panorama;
+    detailViewController.livecam = livecam;
+    
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+	backbutton.title = @"Back";
+	self.navigationItem.backBarButtonItem = backbutton;
+	[backbutton release];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    [detailViewController grabImageInTheBackground:photos];
+    
+    [detailViewController release];
 }
 
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
