@@ -21,14 +21,16 @@
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
-    data = [[NSMutableArray alloc]init];
-    
-    [self loadData];
+    [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
     
     return YES;
 }
 
 - (void)loadData {
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
+    
+    data = [[NSMutableArray alloc]init];
     
     TBXML *tbxml = [[TBXML tbxmlWithXMLFile:@"SPTour.xml"] retain];
     
@@ -50,6 +52,8 @@
 			aPOIObjects.subtitle = [TBXML valueOfAttributeNamed:@"subtitle" forElement:location];
             aPOIObjects.description = [TBXML valueOfAttributeNamed:@"description" forElement:location];
             aPOIObjects.photos = [TBXML valueOfAttributeNamed:@"photos" forElement:location];
+            aPOIObjects.panorama = [TBXML valueOfAttributeNamed:@"panorama" forElement:location];
+            aPOIObjects.livecam = [TBXML valueOfAttributeNamed:@"livecam" forElement:location];
             
             NSString * lat = [TBXML valueOfAttributeNamed:@"lat" forElement:location];
             aPOIObjects.lat = [NSNumber numberWithFloat:[lat floatValue]];
@@ -67,16 +71,17 @@
     // release resources
     [tbxml release];
     
-    SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    
-    RootViewController *rootVC = (RootViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
+    RootViewController *rootVC = (RootViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     [rootVC loadData];
+    
+    [pool release];
 }
 
 - (void)dealloc
 {
     [_window release];
     [_navigationController release];
+    [data release];
     [super dealloc];
 }
 

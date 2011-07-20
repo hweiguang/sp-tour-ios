@@ -8,17 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "WikitudeARViewController.h"
 
-@interface RootViewController : UITableViewController <CLLocationManagerDelegate> {
+@interface RootViewController : UIViewController <UITableViewDelegate,CLLocationManagerDelegate,UITableViewDataSource,WikitudeARViewControllerDelegate> {
     CLLocationManager *locationManager;
     NSMutableArray *data;
     double userlat;
     double userlon;
-    CLLocation *userlocation;
+    WikitudeARViewController *wikitudeAR;
+    UIButton *ARbackButton;
+    UIActivityIndicatorView *activityView; //ActivityIndicator for loading ARView
 }
+
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 - (void)AR:(id)sender;
 - (void)MapView:(id)sender;
 - (void)loadData;
+- (IBAction)showAbout:(id)sender;
 
 @end
