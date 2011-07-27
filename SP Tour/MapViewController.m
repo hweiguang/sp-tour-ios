@@ -37,7 +37,8 @@
     self.title = @"Map";
     
     //set map view delegate
-    self.mapView.mapViewDelegate = self;
+    self.mapView.layerDelegate = self;
+    self.mapView.calloutDelegate = self;
     
     //create and add a base layer to map
 	AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc]
@@ -106,12 +107,12 @@
         if (pt.y > ymax)
             ymax = pt.y;
         
+        NSString *pictureMarker = [aPOIObjects.title stringByAppendingString:@"P.png"];
+        
         //create a marker symbol to use in our graphic
         AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
-                                          pictureMarkerSymbolWithImageNamed:@"MapMarker.png"];
-        marker.xoffset = 9;
-        marker.yoffset = -16;
-        marker.hotspot = CGPointMake(-9, -11);
+                                          pictureMarkerSymbolWithImageNamed:pictureMarker];
+        marker.hotspot = CGPointMake(0,8);
         
         //creating an attribute for the callouts
         NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:aPOIObjects.title forKey:@"title"];

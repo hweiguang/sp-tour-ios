@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ArcGIS.h"
 
-@interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate> {
+@interface MapViewController : UIViewController <AGSMapViewCalloutDelegate,AGSMapViewLayerDelegate,CLLocationManagerDelegate> {
     AGSMapView *_mapView;
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;

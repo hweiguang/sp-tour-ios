@@ -137,7 +137,7 @@
 - (void)NextStation:(id)sender { 
     
     [request clearDelegatesAndCancel];
-    [operationQueue cancelAllOperations];
+    [request release];
     
     SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
