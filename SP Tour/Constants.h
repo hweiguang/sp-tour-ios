@@ -8,7 +8,6 @@
 
 #define RAD_TO_DEG(r)           ((r) * (180 / M_PI))
 #define kMapServiceURL          @"http://www.whereto.sg/WMGIS01/rest/services/WhereTo/Island_Base/MapServer"
-#define imageHostname           @"http://mobileapp.sp.edu.sg/spmap/photos/"
 #define livecamHostname         @"http://mobileapp.sp.edu.sg/ipcam/fcimages/"
 #define panoramaHostname        @"http://mobileapp.sp.edu.sg/spmap/panoramas/"
 
