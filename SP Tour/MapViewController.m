@@ -63,9 +63,7 @@
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     [self loadPoints];
-    //Showing location in iPad version will crash the app
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-        [self.mapView.gps start];
+    [self.mapView.gps start];
 }
 
 - (void)loadPoints {    
@@ -118,7 +116,6 @@
         NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:aPOIObjects.title forKey:@"title"];
         [attribs setValue:aPOIObjects.subtitle forKey:@"subtitle"];
         [attribs setValue:aPOIObjects.description forKey:@"description"];
-        [attribs setValue:aPOIObjects.photos forKey:@"photos"];
         [attribs setValue:aPOIObjects.panorama forKey:@"panorama"];
         [attribs setValue:aPOIObjects.livecam forKey:@"livecam"];
         
@@ -157,7 +154,6 @@
     
     NSString *title = [attribs valueForKey:@"title"];
     NSString *description = [attribs valueForKey:@"description"];
-    NSString *photos = [attribs valueForKey:@"photos"];
     NSString *panorama = [attribs valueForKey:@"panorama"];
     NSString *livecam = [attribs valueForKey:@"livecam"];
     
@@ -174,8 +170,6 @@
 	[backbutton release];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
-    
-    [detailViewController grabImageInTheBackground:photos];
     
     [detailViewController release];
 }

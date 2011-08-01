@@ -15,7 +15,7 @@
 
 @implementation DetailViewController
 
-@synthesize textView,activity,description,panorama,livecam,toolbar;
+@synthesize textView,description,panorama,livecam,toolbar;
 
 - (void)dealloc
 {
@@ -24,18 +24,16 @@
     [panorama release];
     [livecam release];
     [imageView release];
-	[activity release];
     [toolbar release];
-    [request clearDelegatesAndCancel];
-    [request release];
-    [operationQueue cancelAllOperations];
-    [operationQueue release];
     [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSString *imageName = [self.title stringByAppendingString:@".png"];
+    imageView.image = [UIImage imageNamed:imageName];
     
     toolbar = [UIToolbar new];
     toolbar.barStyle = UIBarStyleBlack;
@@ -135,10 +133,6 @@
 }
 
 - (void)NextStation:(id)sender { 
-    
-    [request clearDelegatesAndCancel];
-    [request release];
-    
     SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     imageView.image = nil;
@@ -169,65 +163,20 @@
     else if ([self.title isEqualToString:@"Station 7"]) {
         aPOIObjects = [data objectAtIndex:7];
         self.navigationItem.rightBarButtonItem = nil;
-    } 
-    panorama = aPOIObjects.panorama;
-    livecam = aPOIObjects.livecam;
+    }
+    else
+        return;
+    
+    self.panorama = aPOIObjects.panorama;
+    self.livecam = aPOIObjects.livecam;
+    self.title = aPOIObjects.title;
+    [self.textView setText:aPOIObjects.description];
+    
+    NSString *imageName = [aPOIObjects.title stringByAppendingString:@".png"];
+    imageView.image = [UIImage imageNamed:imageName];
     
     [self settoolbar];
     
-    self.title = aPOIObjects.title;
-    [self.textView setText:aPOIObjects.description];
-    NSString *imagename = aPOIObjects.photos;
-    [self grabImageInTheBackground:imagename];
-}
-
-- (void)grabImageInTheBackground:(NSString*)imagename {
-    
-    [activity startAnimating];
-    
-    if (!operationQueue)
-        operationQueue = [[NSOperationQueue alloc] init];
-    if (imagename != nil) {
-        NSString *imglink = [imageHostname stringByAppendingString:imagename];
-        NSURL *url = [NSURL URLWithString:imglink];
-        request = [[ASIHTTPRequest alloc] initWithURL:url];
-        [request setDelegate:self];
-        [request setDidFinishSelector:@selector(requestDone:)];
-        [request setDidFailSelector:@selector(requestWentWrong:)];
-        [operationQueue addOperation:request];  // request is an NSOperationQueue
-    }
-    
-    //  no photo defined, use default image not found
-    else {
-        imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];        
-        [activity stopAnimating];
-    }
-}
-
-//  connected
-- (void)requestDone:(ASIHTTPRequest *)theRequest
-{
-    NSData *responseData = [theRequest responseData];
-    int statusCode = [theRequest responseStatusCode];
-    
-    //  file not found
-    if (statusCode == 404) {
-        imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];
-    }
-    //  image is nil
-    else if (responseData == nil)
-        imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];
-    //  image found
-    else
-        imageView.image = [UIImage imageWithData:responseData];
-    [activity stopAnimating];    
-}
-
-//  unable to connect, image not found; i.e use default image not found
-- (void)requestWentWrong:(ASIHTTPRequest *)theRequest {
-    //  set image not found
-    imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];        
-    [activity stopAnimating];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

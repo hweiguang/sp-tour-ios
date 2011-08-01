@@ -143,13 +143,16 @@
 		8794F9E713D94E0900832050 /* Station 6P.png in Resources */ = {isa = PBXBuildFile; fileRef = 8794F9DF13D94E0900832050 /* Station 6P.png */; };
 		8794F9E813D94E0900832050 /* Station 7P.png in Resources */ = {isa = PBXBuildFile; fileRef = 8794F9E013D94E0900832050 /* Station 7P.png */; };
 		8794F9E913D94E0900832050 /* Station 8P.png in Resources */ = {isa = PBXBuildFile; fileRef = 8794F9E113D94E0900832050 /* Station 8P.png */; };
-		87A012CF13C1C5B10016967A /* MapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A012CE13C1C5B10016967A /* MapMarker.png */; };
 		87A75FBC13BABA20007C4D2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87A75FBA13BABA20007C4D2A /* InfoPlist.strings */; };
 		87A75FBF13BABA20007C4D2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A75FBE13BABA20007C4D2A /* main.m */; };
 		87A75FC213BABA20007C4D2A /* SP_TourAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A75FC113BABA20007C4D2A /* SP_TourAppDelegate.m */; };
 		87A75FC513BABA20007C4D2A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A75FC313BABA20007C4D2A /* MainWindow.xib */; };
 		87A8341B13C163B20078723A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A8341913C163B20078723A /* DetailViewController.m */; };
 		87A8342E13C1693F0078723A /* POIObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A8342D13C1693F0078723A /* POIObjects.m */; };
+		87CA054113E654DB0058E3CF /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 874102EF13E633870097187F /* Icon-Small-50.png */; };
+		87CA054213E654DB0058E3CF /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 874102F013E633870097187F /* Icon-Small.png */; };
+		87CA054313E654DB0058E3CF /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 874102F113E633870097187F /* Icon-Small@2x.png */; };
+		87CA054613E654DB0058E3CF /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 874102F413E633870097187F /* iTunesArtwork */; };
 		87D7B30213CFDD3B00670D5F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D7B30013CFDD3B00670D5F /* AboutViewController.m */; };
 		87D7B30313CFDD3B00670D5F /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D7B30113CFDD3B00670D5F /* AboutViewController.xib */; };
 		87D7B30513CFDD7800670D5F /* aboutData.html in Resources */ = {isa = PBXBuildFile; fileRef = 87D7B30413CFDD7800670D5F /* aboutData.html */; };
@@ -252,6 +255,13 @@
 		872029B613BC5312004FC801 /* GpsDisplay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GpsDisplay@2x.png"; path = "Resources/GpsDisplay@2x.png"; sourceTree = "<group>"; };
 		872029B713BC5312004FC801 /* GpsDisplayHeading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GpsDisplayHeading.png; path = Resources/GpsDisplayHeading.png; sourceTree = "<group>"; };
 		872029B813BC5312004FC801 /* GpsDisplayHeading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GpsDisplayHeading@2x.png"; path = "Resources/GpsDisplayHeading@2x.png"; sourceTree = "<group>"; };
+		874102EE13E633870097187F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
+		874102EF13E633870097187F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
+		874102F013E633870097187F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
+		874102F113E633870097187F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		874102F213E633870097187F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		874102F313E633870097187F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
+		874102F413E633870097187F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		8741B58013D416E900922386 /* LiveCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveCamViewController.h; sourceTree = "<group>"; };
 		8741B58113D416E900922386 /* LiveCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveCamViewController.m; sourceTree = "<group>"; };
 		8741B58213D416E900922386 /* LiveCamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveCamViewController.xib; sourceTree = "<group>"; };
@@ -328,7 +338,6 @@
 		8794F9DF13D94E0900832050 /* Station 6P.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Station 6P.png"; path = "Resources/Station 6P.png"; sourceTree = "<group>"; };
 		8794F9E013D94E0900832050 /* Station 7P.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Station 7P.png"; path = "Resources/Station 7P.png"; sourceTree = "<group>"; };
 		8794F9E113D94E0900832050 /* Station 8P.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Station 8P.png"; path = "Resources/Station 8P.png"; sourceTree = "<group>"; };
-		87A012CE13C1C5B10016967A /* MapMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapMarker.png; path = Resources/MapMarker.png; sourceTree = "<group>"; };
 		87A75FAD13BABA20007C4D2A /* SP Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SP Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A75FB913BABA20007C4D2A /* SP Tour-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SP Tour-Info.plist"; sourceTree = "<group>"; };
 		87A75FBB13BABA20007C4D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -543,15 +552,10 @@
 		8748A68313BB103F00D0C039 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8794F9DA13D94E0900832050 /* Station 1P.png */,
-				8794F9DB13D94E0900832050 /* Station 2P.png */,
-				8794F9DC13D94E0900832050 /* Station 3P.png */,
-				8794F9DD13D94E0900832050 /* Station 4P.png */,
-				8794F9DE13D94E0900832050 /* Station 5P.png */,
-				8794F9DF13D94E0900832050 /* Station 6P.png */,
-				8794F9E013D94E0900832050 /* Station 7P.png */,
-				8794F9E113D94E0900832050 /* Station 8P.png */,
+				87F9F34113C1B08F004A50B8 /* SPTour.xml */,
 				87D7B30413CFDD7800670D5F /* aboutData.html */,
+				87CA053D13E6543E0058E3CF /* App Icons */,
+				87CA053F13E6544F0058E3CF /* Point Markers */,
 				8783D9ED13C2AB7800FC3B84 /* Images */,
 				8781DF9213CFDC7500673CAC /* About.png */,
 				8781DF9313CFDC7500673CAC /* LiveCam.png */,
@@ -559,7 +563,6 @@
 				8781DF9513CFDC7500673CAC /* SP_logo.png */,
 				8781DF9613CFDC7500673CAC /* Video.png */,
 				87FCAB6D13C2E2610038D22A /* UnavailableImage.png */,
-				87F9F34113C1B08F004A50B8 /* SPTour.xml */,
 				872029B513BC5312004FC801 /* GpsDisplay.png */,
 				872029B613BC5312004FC801 /* GpsDisplay@2x.png */,
 				872029B713BC5312004FC801 /* GpsDisplayHeading.png */,
@@ -570,7 +573,6 @@
 				8748A68813BB107500D0C039 /* Default@2x.png */,
 				8790940713BB18F2005092AE /* esriLogo.png */,
 				8790940813BB18F2005092AE /* esriLogo@2x.png */,
-				87A012CE13C1C5B10016967A /* MapMarker.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -741,6 +743,35 @@
 			name = "3rd Party APIs";
 			sourceTree = "<group>";
 		};
+		87CA053D13E6543E0058E3CF /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				874102EE13E633870097187F /* Icon-72.png */,
+				874102EF13E633870097187F /* Icon-Small-50.png */,
+				874102F013E633870097187F /* Icon-Small.png */,
+				874102F113E633870097187F /* Icon-Small@2x.png */,
+				874102F213E633870097187F /* Icon.png */,
+				874102F313E633870097187F /* Icon@2x.png */,
+				874102F413E633870097187F /* iTunesArtwork */,
+			);
+			name = "App Icons";
+			sourceTree = "<group>";
+		};
+		87CA053F13E6544F0058E3CF /* Point Markers */ = {
+			isa = PBXGroup;
+			children = (
+				8794F9DA13D94E0900832050 /* Station 1P.png */,
+				8794F9DB13D94E0900832050 /* Station 2P.png */,
+				8794F9DC13D94E0900832050 /* Station 3P.png */,
+				8794F9DD13D94E0900832050 /* Station 4P.png */,
+				8794F9DE13D94E0900832050 /* Station 5P.png */,
+				8794F9DF13D94E0900832050 /* Station 6P.png */,
+				8794F9E013D94E0900832050 /* Station 7P.png */,
+				8794F9E113D94E0900832050 /* Station 8P.png */,
+			);
+			name = "Point Markers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -788,6 +819,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87CA054113E654DB0058E3CF /* Icon-Small-50.png in Resources */,
+				87CA054213E654DB0058E3CF /* Icon-Small.png in Resources */,
+				87CA054313E654DB0058E3CF /* Icon-Small@2x.png in Resources */,
+				87CA054613E654DB0058E3CF /* iTunesArtwork in Resources */,
 				87A75FBC13BABA20007C4D2A /* InfoPlist.strings in Resources */,
 				87A75FC513BABA20007C4D2A /* MainWindow.xib in Resources */,
 				8748A68913BB107500D0C039 /* CompassHeading.png in Resources */,
@@ -803,7 +838,6 @@
 				872029BB13BC5312004FC801 /* GpsDisplayHeading.png in Resources */,
 				872029BC13BC5312004FC801 /* GpsDisplayHeading@2x.png in Resources */,
 				87F9F34213C1B08F004A50B8 /* SPTour.xml in Resources */,
-				87A012CF13C1C5B10016967A /* MapMarker.png in Resources */,
 				8783D9F713C2ABA100FC3B84 /* Station 1.png in Resources */,
 				8783D9F813C2ABA100FC3B84 /* Station 2.png in Resources */,
 				8783D9F913C2ABA100FC3B84 /* Station 3.png in Resources */,

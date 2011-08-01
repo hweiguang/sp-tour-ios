@@ -145,55 +145,6 @@
 }
 
 - (void)actionFired:(WTPoi*)POI {
-    /*
-     [wikitudeAR hide];
-     [[UIApplication sharedApplication] setStatusBarHidden:NO];
-     [ARbackButton removeFromSuperview];
-     
-     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController"
-     bundle:nil]; 
-     detailViewController.panorama = nil;
-     detailViewController.livecam = nil;
-     
-     POIObjects * aPOIObjects;
-     if ([POI.name isEqualToString:@"Station 1"]) {
-     aPOIObjects = [data objectAtIndex:0]; 
-     } 
-     else if ([POI.name isEqualToString:@"Station 2"]) {
-     aPOIObjects = [data objectAtIndex:1];
-     }  
-     else if ([POI.name isEqualToString:@"Station 3"]) {
-     aPOIObjects = [data objectAtIndex:2];
-     } 
-     else if ([POI.name isEqualToString:@"Station 4"]) {
-     aPOIObjects = [data objectAtIndex:3];
-     } 
-     else if ([POI.name isEqualToString:@"Station 5"]) {
-     aPOIObjects = [data objectAtIndex:4];
-     } 
-     else if ([POI.name isEqualToString:@"Station 6"]) {
-     aPOIObjects = [data objectAtIndex:5];   
-     } 
-     else if ([POI.name isEqualToString:@"Station 7"]) {
-     aPOIObjects = [data objectAtIndex:6];
-     self.navigationItem.rightBarButtonItem = nil;
-     } 
-     
-     detailViewController.title = aPOIObjects.title;
-     detailViewController.description = aPOIObjects.description;
-     detailViewController.panorama = aPOIObjects.panorama;
-     detailViewController.livecam = aPOIObjects.livecam;
-     
-     [detailViewController grabImageInTheBackground:aPOIObjects.photos];
-     
-     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-     backbutton.title = @"Back";
-     self.navigationItem.backBarButtonItem = backbutton;
-     [backbutton release];
-     
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 - (void) verificationDidFail {
@@ -324,8 +275,6 @@
     detailViewController.description = aPOIObjects.description;
     detailViewController.panorama = aPOIObjects.panorama;
     detailViewController.livecam = aPOIObjects.livecam;
-    
-    [detailViewController grabImageInTheBackground:aPOIObjects.photos];
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
 	backbutton.title = @"Back";

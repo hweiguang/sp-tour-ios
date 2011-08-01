@@ -15,7 +15,6 @@
 @synthesize lat;
 @synthesize lon;
 @synthesize description;
-@synthesize photos;
 @synthesize panorama;
 @synthesize livecam;
 
@@ -28,7 +27,6 @@
         lat = [[NSNumber alloc] initWithDouble:0];
         lon = [[NSNumber alloc] initWithDouble:0];
         description = [[NSString alloc] init];
-        photos = [[NSString alloc] init];
         panorama = [[NSString alloc] init];
         livecam = [[NSString alloc] init];
     }
@@ -42,7 +40,6 @@
 	[lat release];
 	[lon release];
     [description release];
-    [photos release];
     [panorama release];
     [livecam release];
     [super dealloc];

@@ -1,25 +1,31 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <locations>
 	<location title="Station 1" subtitle="Student Service Centre" lat="1.310263" lon="103.777829" description="Opening Hours
 Mon-Fri: 8am-5.30pm
 Tel: 6772-1707
 Email: ssc@sp.edu.sg
 
-Located at T16 Level 2 Room 13, the Student Service Centre (SSC) is a convenient first point of contact for students to obtain information and services to course and student matters. You can get information on Admission, Exams and Student Services." photos="studentservicecentre.jpg" panorama="38-StudentServiceCentre/38-StudentServiceCentre.html"/>
-	<location title="Station 2" subtitle="Foodcourt 5" lat="1.309517" lon="103.777143" description="This air-conditioned foodcourt caters to those who favour fast-food like KFC and Subway. Flanking the food outlets are mini-shops to cater to the needs of the campus population including a bookstore, travel agency and Cheers and Bang Deli. If you're looking for a place to chill with your friends, Starbucks is located at the corner of Foodcourt 5." photos="foodcourt5.jpg" livecam="fc5.jpg"/>
-	<location title="Station 3" subtitle="Swimming Complex" lat="1.309633" lon="103.776818" description="Opening Hours
+Located at T16 (the block directly facing the Dover MRT Station), the Student Service Centre (SSC) in Room 13 on Level 2, is a convenient first point of contact for students to obtain information and services to course and student matters." photos="studentservicecentre.jpg" panorama="38-StudentServiceCentre/38-StudentServiceCentre.html"/>
+	<location title="Station 2" subtitle="Foodcourt 5" lat="1.309517" lon="103.777143" description="This newly renovated food court is fully air-conditioned and caters to those who favour fast-food outlets such as KFC, Starbucks and Subway. Flanking the food outlets are mini-shops and the Popular Bookstore - catering to various needs of the campus population." photos="foodcourt5.jpg" livecam="fc5.jpg"/>
+	<location title="Station 3" subtitle="Swimming Pool and Gym" lat="1.309633" lon="103.776818" description="Opening Hours
 Mon-Fri: 9am-10pm
 Sat-Sun: 9am-10pm
 
-Staff and students of the Singapore Polytechnic have the luxury of an Olympic-sized swimming complex housed in campus. The Staff Centre located next to the pool, also includes a poolside patio for those who enjoy alfresco-style meals. For the young ones, there are also 2 wading pools." photos="swimmingpool.jpg" panorama="33-SwimmingComplex/33-SwimmingComplex.html"/>
-	<location title="Station 4" subtitle="Rock Climbing" lat="1.30852" lon="103.77781" description="The indoor rock walls are popular with climbing enthusiasts. Be sure to be properly attired and hooked up with the right gear before starting your ascend." photos="rockwall.jpg"/>
-	<location title="Station 5" subtitle="Student Hub@Moberly" lat="1.308051" lon="103.778474" description="The Student Hub@Moberly is the favourite chill-out spot in SP. Boasting facilities like dance studio, jamming studio, karaoke room, games room, café and many more." photos="moberly.jpg" panorama="31-Moberly/31-Moberly.html"/>
-	<location title="Station 6" subtitle="Main Library" lat="1.308497" lon="103.779878" description="Reference and Information Services: 6772-1516
+SP's Swimming Pool is one of the very few pools in Singapore with a water ionization system to provide a healthy mineral-water swimming environment.
+
+The newly renovated Fitness Gym, with full-length glass walls facing the pool, is spacious and furnished with the most modern equipment for students and staff to work out while enjoying an excellent view of the swimming pool." photos="swimmingpool.jpg" panorama="33-SwimmingComplex/33-SwimmingComplex.html"/>
+	<location title="Station 4" subtitle="Rock Climbing and Giant Screen" lat="1.30852" lon="103.77781" description="Witness the fun and vibrancy of sporting life on campus at the Student Development Centre (SDC). Besides the well-maintained glass squash courts, there is also a rock climbing wall. The rock wall at the Student Development Centre is one of the three rock climbing walls in SP. There are also the bouldering wall in the Sports Hall and the speed climbing wall at Climb@Moberly.
+
+Besides the sporting activities that students can engage in at the SDC, there is also a giant screen for students to watch live telecasts of their favourite sports." photos="rockwall.jpg"/>
+	<location title="Station 5" subtitle="Moberly" lat="1.308051" lon="103.778474" description="Student Hub@Moberly is the heartbeat and pulse of student life in SP. Conceptualized in consultation with student leaders, it has music jamming studios, computer gaming and karaoke rooms, a pool and foosball room, a student lounge, meeting rooms, graffiti walls, BBQ hotplates, an amphitheatre, an art gallery and so much more! This area is full of life and energy as students throng the place for recreation, or to simply relax in the surrounding gardens on hammocks and rustic benches." photos="moberly.jpg" panorama="31-Moberly/31-Moberly.html"/>
+	<location title="Station 6" subtitle="Library" lat="1.308497" lon="103.779878" description="Reference and Information Services: 6772-1516
 Loans Services: 6772-1575
 Email: library@sp.edu.sg
 Website: http://m.lib.sp.edu.sg
 
-The Main Library is located opposite to the Administration block, consists of a 5-storey main building with the Colours Extension on Level 1. It houses the core collection of materials for subjects on engineering, management, science, technology, mathematics and design which support all the courses taught. The Colours extension provides a hip and happening place for students. It offers exciting facilities like a large cafe social space, magazine lounge, games room, DVD viewing stations and Media Theatre. In addition, students can use the outdoor seats to enjoy the ambience of the surrounding lush greenery." photos="mainlib.jpg" panorama="29-MainLibrary/29-MainLibrary.html"/>
-	<location title="Station 7" subtitle="Innovillage" lat="1.309319" lon="103.780164" description="InnoVillage@SP is a living innovation ecosystem for future technologies and lifestyles. The 26,000 square feet at InnoVillage@SP houses numerous living labs for emergent technologies, new-to-world applications and lifestyle possibilities." photos="innovillage.jpg"/>
-	<location title="Station 8" subtitle="Nutrition, Health and Wellness Centre" lat="1.31003497452998" lon="103.77946794033" description="The Nutrition, Health and Wellness Centre supports hands-on teaching for the Diploma in Nutrition, Health and Wellness course. It has a wide range of equipment which will be housed in the Nutrition and Metabolic, Alternative Health, Exercise Physiology, Physical Fitness and the Health Food Preparation/Demonstration Laboratories within the Centre." photos="nutritionhealthandwellness.jpg" panorama="40-T11/40-T11.html"/>
+SP has two libraries - the Main Library and the Hilltop Library. Both the libraries have an excellent range of multimedia resources, books, magazines and research materials.
+
+The new Colours extension at the Main Library and the Hilltop Haven are popular hangouts for students to have informal gatherings; enjoy drinks, finger food and recreational board games; and watch movies." photos="mainlib.jpg" panorama="29-MainLibrary/29-MainLibrary.html"/>
+	<location title="Station 7" subtitle="Innovillage@SP" lat="1.309319" lon="103.780164" description="The 26,000 square feet at InnoVillage@SP is a living innovation ecosystem for future technologies and lifestyles. It houses numerous living labs for emergent technologies, new-to-world applications and lifestyle possibilities." photos="innovillage.jpg"/>
+	<location title="Station 8" subtitle="Nutrition, Health and Wellness Centre" lat="1.31003497452998" lon="103.77946794033" description="The Centre occupies the first two levels of Block T11A(another building on campus with a distinctive facade that can be viewed from Dover MRT Station). Besides supporting the applied teaching for the Diploma in Nutrition, Health and Wellness course, this centre has a wide range of the latest equipment and set-ups in the various laboratories for Nutrition, Physical Fitness, Exercise Physiology, Human Anatomy, Alternative Health and the Health Food Preparation." photos="nutritionhealthandwellness.jpg" panorama="40-T11/40-T11.html"/>
 </locations>

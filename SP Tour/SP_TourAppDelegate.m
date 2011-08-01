@@ -51,7 +51,6 @@
 			aPOIObjects.title = [TBXML valueOfAttributeNamed:@"title" forElement:location];
 			aPOIObjects.subtitle = [TBXML valueOfAttributeNamed:@"subtitle" forElement:location];
             aPOIObjects.description = [TBXML valueOfAttributeNamed:@"description" forElement:location];
-            aPOIObjects.photos = [TBXML valueOfAttributeNamed:@"photos" forElement:location];
             aPOIObjects.panorama = [TBXML valueOfAttributeNamed:@"panorama" forElement:location];
             aPOIObjects.livecam = [TBXML valueOfAttributeNamed:@"livecam" forElement:location];
             
