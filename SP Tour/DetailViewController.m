@@ -15,41 +15,143 @@
 
 @implementation DetailViewController
 
-@synthesize textView,description,panorama,livecam,toolbar;
+@synthesize description,panorama,livecam,toolbar,subtitle;
 
 - (void)dealloc
 {
-    [textView release];
+    [subtitle release];
     [description release];
     [panorama release];
     [livecam release];
     [imageView release];
+    imageView = nil;
+    [imageViewA release];
+    imageViewA = nil;
+    [label release];
     [toolbar release];
+    [imagescrollView release];
+    [pageControl release];
     [super dealloc];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)setImage {
+    if ([self.title isEqualToString:@"Station 3"] || 
+        [self.title isEqualToString:@"Station 6"] ||
+        [self.title isEqualToString:@"Station 9"]) {
+        
+        NSString *imageName = [self.title stringByAppendingString:@".jpg"];
+        imageView.image = [UIImage imageNamed:imageName];
+        imageName = [self.title stringByAppendingString:@"A.jpg"];
+        imageViewA.image = [UIImage imageNamed:imageName];
+        pageControl.numberOfPages = 2;
+        [self.view addSubview:pageControl];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            imagescrollView.contentSize = CGSizeMake(768*2,480);
+        else
+            imagescrollView.contentSize = CGSizeMake(320*2,200);
+    }
+    else {
+        [pageControl removeFromSuperview];
+        
+        NSString *imageName = [self.title stringByAppendingString:@".jpg"];
+        imageView.image = [UIImage imageNamed:imageName];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            imagescrollView.contentSize = CGSizeMake(768,480);
+        else
+            imagescrollView.contentSize = CGSizeMake(320,200);
+    }
+}
+
+- (void)loadiPhone {
+    label = [[UILabel alloc]initWithFrame:CGRectMake(10,205,300,250)];
+    label.numberOfLines = 0;
     
-    NSString *imageName = [self.title stringByAppendingString:@".png"];
-    imageView.image = [UIImage imageNamed:imageName];
+    self.subtitle = [self.subtitle stringByAppendingString:@"\n"];
+    label.text = [self.subtitle stringByAppendingString:self.description];
+    
+    CGRect currentFrame = label.frame;    
+    CGSize max = CGSizeMake(300, 10000);
+    CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
+    currentFrame.size.height = expected.height ;
+    label.frame = currentFrame;
+    [self.view addSubview:label];
+    
+    imagescrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 200)];
+    imagescrollView.pagingEnabled = YES;
+    imagescrollView.showsHorizontalScrollIndicator = NO;
+    imagescrollView.showsVerticalScrollIndicator = NO;
+    imagescrollView.scrollsToTop = NO;
+    imagescrollView.delegate = self;
+    
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 200)];    
+    [imagescrollView addSubview:imageView];
+    
+    imageViewA = [[UIImageView alloc]initWithFrame:CGRectMake(320, 0, 320, 200)];    
+    [imagescrollView addSubview:imageViewA];
+    
+    [self.view addSubview:imagescrollView];
+    
+    pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(140, 170, 40, 30)];
+    
+    [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)loadiPad {
+    label = [[UILabel alloc]initWithFrame:CGRectMake(5,485,758,850)];
+    label.numberOfLines = 0;
+    self.subtitle = [self.subtitle stringByAppendingString:@"\n"];
+    label.text = [self.subtitle stringByAppendingString:self.description];
+    
+    CGRect currentFrame = label.frame;    
+    CGSize max = CGSizeMake(758, 10000);
+    CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
+    currentFrame.size.height = expected.height ;
+    label.frame = currentFrame;
+    [self.view addSubview:label];
+    
+    imagescrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 768, 480)];
+    imagescrollView.pagingEnabled = YES;
+    imagescrollView.showsHorizontalScrollIndicator = NO;
+    imagescrollView.showsVerticalScrollIndicator = NO;
+    imagescrollView.scrollsToTop = NO;
+    imagescrollView.delegate = self;
+    
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 768, 480)];
+    [imagescrollView addSubview:imageView];
+    
+    imageViewA = [[UIImageView alloc]initWithFrame:CGRectMake(768, 0, 768, 480)];    
+    [imagescrollView addSubview:imageViewA];
+    
+    [self.view addSubview:imagescrollView];
+    
+    pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(150, 450, 40, 30)];
+    
+    [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     toolbar = [UIToolbar new];
     toolbar.barStyle = UIBarStyleBlack;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         toolbar.frame = CGRectMake(0, 372, 320, 44);
-    else
+        [self loadiPhone];
+    }
+    else {
         toolbar.frame = CGRectMake(0, 916, 768, 44);
+        [self loadiPad];
+    }
     
     [self.view addSubview:toolbar];
     
     [self settoolbar];
+    [self setImage];
     
-    [self.textView setText:description];
-    
-    if (![self.title isEqualToString:@"Station 8"]) {
+    if (![self.title isEqualToString:@"Station 10"]) {
         UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" 
                                                                        style:UIBarButtonItemStylePlain 
                                                                       target:self 
@@ -60,10 +162,8 @@
 }
 
 - (void)settoolbar {
-    
     NSMutableArray *items = [[NSMutableArray alloc]init];
-    
-    if (panorama != nil) {
+    if (![panorama isEqualToString:@""]) {
         UIBarButtonItem *showPanoramaButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Panorama.png"]
                                                                                    style:UIBarButtonItemStylePlain
                                                                                   target:self
@@ -72,7 +172,7 @@
         [showPanoramaButtonItem release];
     }
     
-    if (livecam != nil) {
+    if (![livecam isEqualToString:@""]) {
         UIBarButtonItem *showLiveCamButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LiveCam.png"]
                                                                                   style:UIBarButtonItemStylePlain
                                                                                  target:self
@@ -82,6 +182,7 @@
     }
     [self.toolbar setItems:items animated:YES]; 
     [items release];
+    items = nil;
 }
 
 - (void)showPanorama:(id)sender {
@@ -96,8 +197,6 @@
                                                                   target:nil action:nil];
 	self.navigationItem.backBarButtonItem = backbutton;
     [backbutton release];
-    
-    webviewController.title = @"Panorama";
     [self.navigationController pushViewController:webviewController animated:YES];
 	[webviewController release];
     
@@ -136,6 +235,7 @@
     SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     imageView.image = nil;
+    imageViewA.image = nil;
     panorama = nil;
     livecam = nil;
     
@@ -162,6 +262,12 @@
     } 
     else if ([self.title isEqualToString:@"Station 7"]) {
         aPOIObjects = [data objectAtIndex:7];
+    }
+    else if ([self.title isEqualToString:@"Station 8"]) {
+        aPOIObjects = [data objectAtIndex:8];
+    }
+    else if ([self.title isEqualToString:@"Station 9"]) {
+        aPOIObjects = [data objectAtIndex:9];
         self.navigationItem.rightBarButtonItem = nil;
     }
     else
@@ -170,13 +276,44 @@
     self.panorama = aPOIObjects.panorama;
     self.livecam = aPOIObjects.livecam;
     self.title = aPOIObjects.title;
-    [self.textView setText:aPOIObjects.description];
+    self.subtitle = aPOIObjects.subtitle;
+    self.description = aPOIObjects.description;
     
-    NSString *imageName = [aPOIObjects.title stringByAppendingString:@".png"];
-    imageView.image = [UIImage imageNamed:imageName];
+    self.subtitle = [self.subtitle stringByAppendingString:@"\n"];
+    label.text = [self.subtitle stringByAppendingString:self.description];
     
-    [self settoolbar];
+    CGSize max;
     
+    CGRect currentFrame = label.frame;    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        max = CGSizeMake(758, 10000);
+    else
+        max = CGSizeMake(300, 10000);
+    
+    CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
+    currentFrame.size.height = expected.height;
+    label.frame = currentFrame;
+    
+    [self setImage];
+    [self settoolbar];    
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate stuff
+- (void)scrollViewDidScroll:(UIScrollView *)_scrollView
+{
+    CGFloat pageWidth = _scrollView.frame.size.width;
+    int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    pageControl.currentPage = page;
+}
+
+- (void)changePage:(id)sender {
+    // update the scroll view to the appropriate page
+    CGRect frame;
+    frame.origin.x = imagescrollView.frame.size.width * pageControl.currentPage;
+    frame.origin.y = 0;
+    frame.size = imagescrollView.frame.size;
+    [imagescrollView scrollRectToVisible:frame animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

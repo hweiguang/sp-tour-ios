@@ -1,31 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <locations>
-	<location title="Station 1" subtitle="Student Service Centre" lat="1.310263" lon="103.777829" description="Opening Hours
-Mon-Fri: 8am-5.30pm
-Tel: 6772-1707
-Email: ssc@sp.edu.sg
-
-Located at T16 (the block directly facing the Dover MRT Station), the Student Service Centre (SSC) in Room 13 on Level 2, is a convenient first point of contact for students to obtain information and services to course and student matters." photos="studentservicecentre.jpg" panorama="38-StudentServiceCentre/38-StudentServiceCentre.html"/>
-	<location title="Station 2" subtitle="Foodcourt 5" lat="1.309517" lon="103.777143" description="This newly renovated food court is fully air-conditioned and caters to those who favour fast-food outlets such as KFC, Starbucks and Subway. Flanking the food outlets are mini-shops and the Popular Bookstore - catering to various needs of the campus population." photos="foodcourt5.jpg" livecam="fc5.jpg"/>
-	<location title="Station 3" subtitle="Swimming Pool and Gym" lat="1.309633" lon="103.776818" description="Opening Hours
-Mon-Fri: 9am-10pm
-Sat-Sun: 9am-10pm
-
-SP's Swimming Pool is one of the very few pools in Singapore with a water ionization system to provide a healthy mineral-water swimming environment.
-
-The newly renovated Fitness Gym, with full-length glass walls facing the pool, is spacious and furnished with the most modern equipment for students and staff to work out while enjoying an excellent view of the swimming pool." photos="swimmingpool.jpg" panorama="33-SwimmingComplex/33-SwimmingComplex.html"/>
-	<location title="Station 4" subtitle="Rock Climbing and Giant Screen" lat="1.30852" lon="103.77781" description="Witness the fun and vibrancy of sporting life on campus at the Student Development Centre (SDC). Besides the well-maintained glass squash courts, there is also a rock climbing wall. The rock wall at the Student Development Centre is one of the three rock climbing walls in SP. There are also the bouldering wall in the Sports Hall and the speed climbing wall at Climb@Moberly.
-
-Besides the sporting activities that students can engage in at the SDC, there is also a giant screen for students to watch live telecasts of their favourite sports." photos="rockwall.jpg"/>
-	<location title="Station 5" subtitle="Moberly" lat="1.308051" lon="103.778474" description="Student Hub@Moberly is the heartbeat and pulse of student life in SP. Conceptualized in consultation with student leaders, it has music jamming studios, computer gaming and karaoke rooms, a pool and foosball room, a student lounge, meeting rooms, graffiti walls, BBQ hotplates, an amphitheatre, an art gallery and so much more! This area is full of life and energy as students throng the place for recreation, or to simply relax in the surrounding gardens on hammocks and rustic benches." photos="moberly.jpg" panorama="31-Moberly/31-Moberly.html"/>
-	<location title="Station 6" subtitle="Library" lat="1.308497" lon="103.779878" description="Reference and Information Services: 6772-1516
-Loans Services: 6772-1575
-Email: library@sp.edu.sg
-Website: http://m.lib.sp.edu.sg
-
-SP has two libraries - the Main Library and the Hilltop Library. Both the libraries have an excellent range of multimedia resources, books, magazines and research materials.
-
-The new Colours extension at the Main Library and the Hilltop Haven are popular hangouts for students to have informal gatherings; enjoy drinks, finger food and recreational board games; and watch movies." photos="mainlib.jpg" panorama="29-MainLibrary/29-MainLibrary.html"/>
-	<location title="Station 7" subtitle="Innovillage@SP" lat="1.309319" lon="103.780164" description="The 26,000 square feet at InnoVillage@SP is a living innovation ecosystem for future technologies and lifestyles. It houses numerous living labs for emergent technologies, new-to-world applications and lifestyle possibilities." photos="innovillage.jpg"/>
-	<location title="Station 8" subtitle="Nutrition, Health and Wellness Centre" lat="1.31003497452998" lon="103.77946794033" description="The Centre occupies the first two levels of Block T11A(another building on campus with a distinctive facade that can be viewed from Dover MRT Station). Besides supporting the applied teaching for the Diploma in Nutrition, Health and Wellness course, this centre has a wide range of the latest equipment and set-ups in the various laboratories for Nutrition, Physical Fitness, Exercise Physiology, Human Anatomy, Alternative Health and the Health Food Preparation." photos="nutritionhealthandwellness.jpg" panorama="40-T11/40-T11.html"/>
+    
+    <location>
+        <title>Station 1</title>
+        <subtitle>Student Service Centre</subtitle>
+        <lat>1.310263</lat>
+        <lon>103.777829</lon>
+        <description>Located at T16 (The block directly facing Dover MRT Station), the Student Service Centre (SSC) is a first point of contact for students to obtain information, guidance and services.</description>
+        <panorama>38-StudentServiceCentre/38-StudentServiceCentre.html</panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 2</title>
+        <subtitle>Foodcourt 5</subtitle>
+        <lat>1.309517</lat>
+        <lon>103.777143</lon>
+        <description>Hungry? This newly renovated food court is fully air-conditioned and caters to those who prefer western food, with outlets such as KFC, Subway and Starbucks.</description>
+        <panorama></panorama>
+        <livecam>fc5.jpg</livecam>
+    </location>
+    
+    <location>
+        <title>Station 3</title>
+        <subtitle>Swimming Pool and Gym</subtitle>
+        <lat>1.309633</lat>
+        <lon>103.776818</lon>
+        <description>Work out at the newly renovated Fitness Gym, with full-length glass walls facing our mineral-water swimming pool.</description>
+        <panorama></panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 4</title>
+        <subtitle>Rock Climbing and Giant Screen</subtitle>
+        <lat>1.30852</lat>
+        <lon>103.77781</lon>
+        <description>Witness the fun and vibrancy of sporting life on campus such as the rock wall and basketball courts.</description>
+        <panorama></panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 5</title>
+        <subtitle>Moberly</subtitle>
+        <lat>1.308051</lat>
+        <lon>103.778474</lon>
+        <description>Come by at the end of a school day to chill out and relax at our recreational hub with jamming studios, snooker rooms, and so much more!</description>
+        <panorama></panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 6</title>
+        <subtitle>Library</subtitle>
+        <lat>1.308497</lat>
+        <lon>103.779878</lon>
+        <description>Check out our two libraries : the Main Library and the Hilltop Library.</description>
+        <panorama>29-MainLibrary/29-MainLibrary.html</panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 7</title>
+        <subtitle>Innovillage@SP</subtitle>
+        <lat>1.309319</lat>
+        <lon>103.780164</lon>
+        <description>Explore the exciting 26,000 square foor InnoVillage@SP. A living innovation eco system for future technology and lifestyle.</description>
+        <panorama></panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 8</title>
+        <subtitle>Nutrition, Health and Wellness Centre</subtitle>
+        <lat>1.31003497452998</lat>
+        <lon>103.77946794033</lon>
+        <description>Check out this new centre with the widest range of latest equipment and set-ups in various laboratories.</description>
+        <panorama>40-T11/40-T11.html</panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 9</title>
+        <subtitle>The Biostream</subtitle>
+        <lat>1.31067</lat>
+        <lon>103.779253</lon>
+        <description>This stream boats an abundance of fish and plant life. Come see this water miracle for yourself!</description>
+        <panorama></panorama>
+        <livecam></livecam>
+    </location>
+    
+    <location>
+        <title>Station 10</title>
+        <subtitle>Designworks Singapore</subtitle>
+        <lat>1.311588</lat>
+        <lon>103.777113</lon>
+        <description>This is a design-based and innovation centre, with its core mandate to push the application of design thinking and to nurture creative enterprise.</description>
+        <panorama></panorama>
+        <livecam></livecam>
+    </location>
+    
 </locations>

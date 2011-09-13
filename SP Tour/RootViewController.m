@@ -35,6 +35,8 @@
 {
     [super viewDidLoad];
     
+    shouldUpdateLocation = YES;
+    
     locationManager = [[CLLocationManager alloc]init];
     locationManager.delegate = self;
     locationManager.distanceFilter =  kCLDistanceFilterNone;
@@ -65,7 +67,7 @@
 
 - (void) loadData {
     SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    data = [[NSMutableArray alloc] initWithArray:appDelegate.data];    
+    data = [[NSMutableArray alloc] initWithArray:appDelegate.data];  
     [self.tableView reloadData];
 }
 
@@ -106,11 +108,11 @@
 - (void)AR:(id)sender {
     if (wikitudeAR == nil) {
         
-        activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
-                         UIActivityIndicatorViewStyleWhiteLarge]autorelease];
-        [self.view addSubview: activityView];
-        activityView.center = CGPointMake(160,235);
-        [activityView startAnimating];
+        loadingHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:loadingHUD];
+        loadingHUD.mode = MBProgressHUDModeIndeterminate;
+        loadingHUD.labelText = @"Loading AR...";
+        [loadingHUD show:YES];
         
         wikitudeAR = [[WikitudeARViewController alloc] initWithDelegate:self 
                                                      applicationPackage:wktapplicationPackage 
@@ -141,13 +143,27 @@
     ARbackButton.frame = CGRectMake(265,0,55,30);
     [appDelegate.window addSubview:ARbackButton];
     [appDelegate.window makeKeyAndVisible];
-    [activityView stopAnimating];
+    [loadingHUD hide:YES];
 }
 
 - (void)actionFired:(WTPoi*)POI {
 }
 
 - (void) verificationDidFail {
+    [loadingHUD hide:YES];
+    
+    MBProgressHUD *errorHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:errorHUD];
+	errorHUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Error.png"]] autorelease];
+    errorHUD.mode = MBProgressHUDModeCustomView;
+    errorHUD.labelText = @"AR failed to load";
+	errorHUD.detailsLabelText = @"Please try again";
+    [errorHUD show:YES];
+	[errorHUD hide:YES afterDelay:1.5];
+    [errorHUD release];
+    
+    [wikitudeAR release];
+    wikitudeAR = nil;
 }
 
 - (void) didUpdateToLocation: (CLLocation*) newLocation
@@ -184,12 +200,14 @@
     // Getting the location coordinate
     userlat = newLocation.coordinate.latitude;
     userlon = newLocation.coordinate.longitude; 
-    [self.tableView reloadData];
+    if (shouldUpdateLocation)
+        [self.tableView reloadData];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
        didUpdateHeading:(CLHeading *)newHeading {
-    [self.tableView reloadData];
+    if (shouldUpdateLocation)
+        [self.tableView reloadData];
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
@@ -207,7 +225,7 @@
     
     CustomCellforListVC *cell = (CustomCellforListVC*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[CustomCellforListVC alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[CustomCellforListVC alloc]initWithFrame:CGRectZero]autorelease];
     }
     
     POIObjects * aPOIObjects = [data objectAtIndex:indexPath.row];
@@ -215,8 +233,10 @@
     cell.primaryLabel.text = aPOIObjects.title;
     cell.secondaryLabel.text = aPOIObjects.subtitle;
     
-    NSString *imageName = [aPOIObjects.title stringByAppendingString:@".png"];
-    cell.image.image = [UIImage imageNamed:imageName];
+    NSString *imageName = [aPOIObjects.title stringByAppendingString:@".jpg"];
+    
+    if (!cell.image.image)
+        cell.image.image = [UIImage imageNamed:imageName];
     
     cell.description.text = aPOIObjects.description;
     
@@ -267,6 +287,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController"
                                                                                         bundle:nil];    
     POIObjects * aPOIObjects = [data objectAtIndex:indexPath.row];
@@ -275,6 +298,7 @@
     detailViewController.description = aPOIObjects.description;
     detailViewController.panorama = aPOIObjects.panorama;
     detailViewController.livecam = aPOIObjects.livecam;
+    detailViewController.subtitle = aPOIObjects.subtitle;
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
 	backbutton.title = @"Back";
@@ -283,6 +307,19 @@
     
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate)
+        shouldUpdateLocation = YES;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    shouldUpdateLocation = YES;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {	
+    shouldUpdateLocation = NO;
 }
 
 @end
