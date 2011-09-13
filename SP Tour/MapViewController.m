@@ -12,6 +12,7 @@
 #import "DetailViewController.h"
 #import "RootViewController.h"
 #import "Constants.h"
+#import "Reachability.h"
 
 @implementation MapViewController
 
@@ -33,6 +34,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    Reachability* wifiReach = [[Reachability reachabilityWithHostName:kReachabilityHostname] retain];
+    NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
+    
+    switch (netStatus) {
+        case kNotReachable: {            
+            MBProgressHUD *errorHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+            [self.navigationController.view addSubview:errorHUD];
+            errorHUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Error.png"]] autorelease];
+            errorHUD.mode = MBProgressHUDModeCustomView;
+            errorHUD.labelText = @"No Internet Connection";
+            errorHUD.detailsLabelText = @"Map requires Internet connection to load.";
+            [errorHUD show:YES];
+            [errorHUD hide:YES afterDelay:1.5];
+            [errorHUD release];
+        }
+            break;
+        case kReachableViaWWAN:
+            break;
+        case kReachableViaWiFi:
+            break;
+    }
+    [wifiReach release];
     
     self.title = @"Map";
     
@@ -156,6 +180,7 @@
     NSString *description = [attribs valueForKey:@"description"];
     NSString *panorama = [attribs valueForKey:@"panorama"];
     NSString *livecam = [attribs valueForKey:@"livecam"];
+    NSString *subtitle = [attribs valueForKey:@"subtitle"];
     
     DetailViewController *detailViewController = [[DetailViewController alloc]
                                                   initWithNibName:@"DetailViewController" bundle:nil];
@@ -163,6 +188,7 @@
     detailViewController.description = description;
     detailViewController.panorama = panorama;
     detailViewController.livecam = livecam;
+    detailViewController.subtitle = subtitle;
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
 	backbutton.title = @"Back";

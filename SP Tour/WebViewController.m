@@ -11,7 +11,7 @@
 
 @implementation WebViewController
 
-@synthesize webView,activity,link;
+@synthesize webView,link;
 
 - (void)viewDidLoad {
     
@@ -31,11 +31,11 @@
 
 - (void) loading {
 	if (!webView.loading){
-		[activity stopAnimating];
+		self.title = @"Panorama";
         [timer invalidate];
     }
 	else
-		[activity startAnimating];
+		self.title = @"Loading...";
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -50,7 +50,6 @@
 - (void)dealloc
 {
     [webView release];
-    [activity release];
     [link release];
     [super dealloc];
 }

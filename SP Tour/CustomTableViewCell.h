@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface CustomCellforListVC : UITableViewCell {
     UILabel *primaryLabel;

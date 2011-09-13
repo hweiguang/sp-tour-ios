@@ -9,6 +9,7 @@
 #import "SP_TourAppDelegate.h"
 #import "POIObjects.h"
 #import "RootViewController.h"
+#import "Constants.h"
 
 @implementation SP_TourAppDelegate
 
@@ -22,12 +23,11 @@
     [self.window makeKeyAndVisible];
     
     [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
-    
     return YES;
 }
 
 - (void)loadData {
-    
+ 
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
     
     data = [[NSMutableArray alloc]init];
@@ -47,17 +47,28 @@
             // instantiate an location object
             POIObjects * aPOIObjects = [[POIObjects alloc] init];
             
-			//Extracting all the attribute in element location
-			aPOIObjects.title = [TBXML valueOfAttributeNamed:@"title" forElement:location];
-			aPOIObjects.subtitle = [TBXML valueOfAttributeNamed:@"subtitle" forElement:location];
-            aPOIObjects.description = [TBXML valueOfAttributeNamed:@"description" forElement:location];
-            aPOIObjects.panorama = [TBXML valueOfAttributeNamed:@"panorama" forElement:location];
-            aPOIObjects.livecam = [TBXML valueOfAttributeNamed:@"livecam" forElement:location];
+            TBXMLElement * title = [TBXML childElementNamed:@"title" parentElement:location];
+            aPOIObjects.title = [TBXML textForElement:title];
             
-            NSString * lat = [TBXML valueOfAttributeNamed:@"lat" forElement:location];
-            aPOIObjects.lat = [NSNumber numberWithFloat:[lat floatValue]];
-            NSString * lon = [TBXML valueOfAttributeNamed:@"lon" forElement:location];
-            aPOIObjects.lon = [NSNumber numberWithFloat:[lon floatValue]];
+            TBXMLElement *subtitle = [TBXML childElementNamed:@"subtitle" parentElement:location];
+            aPOIObjects.subtitle = [TBXML textForElement:subtitle];
+            
+            TBXMLElement *description = [TBXML childElementNamed:@"description" parentElement:location]; 
+            aPOIObjects.description = [TBXML textForElement:description];
+            
+            TBXMLElement *panorama = [TBXML childElementNamed:@"panorama" parentElement:location];
+            aPOIObjects.panorama = [TBXML textForElement:panorama];
+            
+            TBXMLElement *livecam = [TBXML childElementNamed:@"livecam" parentElement:location];
+            aPOIObjects.livecam = [TBXML textForElement:livecam];
+            
+            TBXMLElement *lat = [TBXML childElementNamed:@"lat" parentElement:location];
+            NSString *_lat = [TBXML textForElement:lat];
+            aPOIObjects.lat = [NSNumber numberWithFloat:[_lat floatValue]];
+            
+            TBXMLElement *lon = [TBXML childElementNamed:@"lon" parentElement:location];
+            NSString *_lon = [TBXML textForElement:lon];
+            aPOIObjects.lon = [NSNumber numberWithFloat:[_lon floatValue]];
             
             // add our location object to the locations array and release the resource
 			[data addObject:aPOIObjects];

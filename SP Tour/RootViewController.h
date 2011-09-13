@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "WikitudeARViewController.h"
+#import "MBProgressHUD.h"
 
-@interface RootViewController : UIViewController <UITableViewDelegate,CLLocationManagerDelegate,UITableViewDataSource,WikitudeARViewControllerDelegate> {
+@interface RootViewController : UIViewController <CLLocationManagerDelegate,WikitudeARViewControllerDelegate,UIScrollViewDelegate> {
     CLLocationManager *locationManager;
     NSMutableArray *data;
     double userlat;
     double userlon;
     WikitudeARViewController *wikitudeAR;
     UIButton *ARbackButton;
-    UIActivityIndicatorView *activityView; //ActivityIndicator for loading ARView
+    
+    MBProgressHUD *loadingHUD;
+    
+    BOOL shouldUpdateLocation;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;

@@ -10,6 +10,7 @@
 #define kMapServiceURL          @"http://www.whereto.sg/WMGIS01/rest/services/WhereTo/Island_Base/MapServer"
 #define livecamHostname         @"http://mobileapp.sp.edu.sg/ipcam/fcimages/"
 #define panoramaHostname        @"http://mobileapp.sp.edu.sg/spmap/panoramas/"
+#define kReachabilityHostname   @"mobileapp.sp.edu.sg"
 
 //Wikitude Keys
 #define wktapplicationPackage   @"sg.edu.sp.SP-Tour" 
