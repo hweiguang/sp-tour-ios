@@ -2,33 +2,46 @@
 //  RootViewController.h
 //  SP Tour
 //
-//  Created by Wei Guang on 6/29/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Wei Guang on 13/9/11.
+//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "WikitudeARViewController.h"
+#import "TBXML.h"
+#import "POIObjects.h"
+#import "Constants.h"
 #import "MBProgressHUD.h"
+#import "DetailViewController.h"
+#import "WikitudeARViewController.h"
+#import "AboutViewController.h"
 
-@interface RootViewController : UIViewController <CLLocationManagerDelegate,WikitudeARViewControllerDelegate,UIScrollViewDelegate> {
+@interface RootViewController : UIViewController <CLLocationManagerDelegate,WikitudeARViewControllerDelegate,UITableViewDelegate, UITableViewDataSource> {
     CLLocationManager *locationManager;
-    NSMutableArray *data;
+    NSMutableArray *_data;
     double userlat;
     double userlon;
+    
+    UITableView *_tableView;
+    
     WikitudeARViewController *wikitudeAR;
     UIButton *ARbackButton;
     
     MBProgressHUD *loadingHUD;
     
     BOOL shouldUpdateLocation;
+    
+    UIToolbar *_toolbar;
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic,retain) NSMutableArray *data;
+@property (nonatomic,retain) UIToolbar *toolbar;
+@property (nonatomic, retain) UITableView *tableView;
 
-- (void)AR:(id)sender;
-- (void)MapView:(id)sender;
+
 - (void)loadData;
-- (IBAction)showAbout:(id)sender;
+- (void)showAR;
+- (void)showMapView;
+- (void)showAbout;
 
 @end

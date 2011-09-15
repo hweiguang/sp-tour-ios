@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface WebViewController : UIViewController {
+@interface WebViewController : UIViewController <UIWebViewDelegate> {
 	IBOutlet UIWebView *webView;
-	NSTimer *timer;
     NSString *link;
+    MBProgressHUD *loading; 
 }
 
 @property (nonatomic, retain) UIWebView *webView;
 @property (nonatomic, retain) NSString *link;
+
+- (void)dismiss:(id)sender;
 
 @end

@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 #import "POIObjects.h"
-#import "SP_TourAppDelegate.h"
 #import "DetailViewController.h"
 #import "RootViewController.h"
 #import "Constants.h"
@@ -31,21 +30,72 @@
     [super dealloc];
 }
 
+- (void)showCallout:(NSNotification*)notification {
+    
+    if (!mapLoaded)
+        return;
+    
+    NSDictionary *dictionary = [notification userInfo];
+    
+    double ptlat = [[dictionary objectForKey:@"lat"]doubleValue];
+    double ptlon = [[dictionary objectForKey:@"lon"]doubleValue];
+    
+    AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
+    
+    NSString *pictureMarker = [[dictionary objectForKey:@"title"] stringByAppendingString:@"P.png"];
+    
+    //create a marker symbol to use in our graphic
+    AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
+                                      pictureMarkerSymbolWithImageNamed:pictureMarker];
+    marker.hotspot = CGPointMake(0,8);
+    
+    AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
+                                                        symbol:marker
+                                                    attributes:[NSMutableDictionary dictionaryWithDictionary:dictionary]
+                                          infoTemplateDelegate:self.CalloutTemplate];
+    
+    [self.mapView centerAtPoint:pt animated:YES];
+    [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
+    [graphic release];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showCallout:)
+                                                     name:@"showCallout"
+                                                   object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    loading = [[MBProgressHUD alloc]initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:loading];
+    loading.mode = MBProgressHUDModeIndeterminate;
+    loading.labelText = @"Loading...";
+    [loading show:YES];
+    
+    mapLoaded = NO;
     
     Reachability* wifiReach = [[Reachability reachabilityWithHostName:kReachabilityHostname] retain];
     NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
     
     switch (netStatus) {
-        case kNotReachable: {            
+        case kNotReachable: {   
+            [loading hide:YES];
             MBProgressHUD *errorHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
             [self.navigationController.view addSubview:errorHUD];
             errorHUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Error.png"]] autorelease];
             errorHUD.mode = MBProgressHUDModeCustomView;
             errorHUD.labelText = @"No Internet Connection";
-            errorHUD.detailsLabelText = @"Map requires Internet connection to load.";
+            errorHUD.detailsLabelText = @"SP Tour requires Internet connection to load map.";
             [errorHUD show:YES];
             [errorHUD hide:YES afterDelay:1.5];
             [errorHUD release];
@@ -77,7 +127,7 @@
     // Adding esriLogo watermark
     UIImageView *watermarkIV;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 935, 43, 25)];
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 979, 43, 25)];
     else
         watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 391, 43, 25)];
     watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
@@ -87,13 +137,18 @@
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     [self loadPoints];
+    mapLoaded = YES;
+    [loading hide:YES];
     [self.mapView.gps start];
 }
 
-- (void)loadPoints {    
-    SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+- (void)loadPoints {
     
-    NSMutableArray *data = appDelegate.data;
+    [self.graphicsLayer removeAllGraphics];
+    
+    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
+    NSMutableArray *data = appDelegate.rootViewController.data;
     
     //use these to calculate extent of results
     double xmin = DBL_MAX;
@@ -149,18 +204,15 @@
         
         //create the graphic
         AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
-                                                            symbol:marker
-                                                        attributes:attribs
-                                              infoTemplateDelegate:self.CalloutTemplate];
+                                                symbol:marker
+                                            attributes:attribs
+                                  infoTemplateDelegate:self.CalloutTemplate];
         
         //add the graphic to the graphics layer
         [self.graphicsLayer addGraphic:graphic];
         
         //Redraw map
         [self.graphicsLayer dataChanged];
-        
-        //release the graphic
-        [graphic release];
     }    
     
     AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
@@ -172,31 +224,29 @@
     [self.mapView zoomToEnvelope:extent animated:YES];
 }
 
-- (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic {
-    
+- (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *)graphic {
     NSDictionary *attribs =[NSDictionary dictionaryWithDictionary:graphic.attributes];
-    
     NSString *title = [attribs valueForKey:@"title"];
     NSString *description = [attribs valueForKey:@"description"];
     NSString *panorama = [attribs valueForKey:@"panorama"];
     NSString *livecam = [attribs valueForKey:@"livecam"];
     NSString *subtitle = [attribs valueForKey:@"subtitle"];
     
-    DetailViewController *detailViewController = [[DetailViewController alloc]
-                                                  initWithNibName:@"DetailViewController" bundle:nil];
+    DetailViewController *detailViewController = [[DetailViewController alloc]init];
     detailViewController.title = title;
     detailViewController.description = description;
     detailViewController.panorama = panorama;
     detailViewController.livecam = livecam;
     detailViewController.subtitle = subtitle;
     
-    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-	backbutton.title = @"Back";
-	self.navigationItem.backBarButtonItem = backbutton;
-	[backbutton release];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+        backbutton.title = @"Back";
+        self.navigationItem.backBarButtonItem = backbutton;
+        [backbutton release];
+    }
     
     [self.navigationController pushViewController:detailViewController animated:YES];
-    
     [detailViewController release];
 }
 

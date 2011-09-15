@@ -19,23 +19,35 @@
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+    self.title = @"Panorama";
     
-    //Timer to to check the status of webView
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                             target:self 
-                                           selector:@selector(loading) 
-                                           userInfo:nil 
-                                            repeats:YES];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+    webView.delegate = self;
+    
+    loading = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:loading];
+    loading.mode = MBProgressHUDModeIndeterminate;
+    loading.labelText = @"Loading...";
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [backButton addTarget:self action:@selector(dismiss:)forControlEvents:UIControlEventTouchDown];
+        [backButton setTitle:@"Back" forState:UIControlStateNormal];
+        backButton.frame = CGRectMake(0,0,55,30);
+        [self.view addSubview:backButton]; 
+    }
 }
 
-- (void) loading {
-	if (!webView.loading){
-		self.title = @"Panorama";
-        [timer invalidate];
-    }
-	else
-		self.title = @"Loading...";
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [loading show:YES];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [loading hide:YES];
+}
+
+- (void)dismiss:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -51,6 +63,7 @@
 {
     [webView release];
     [link release];
+    [loading release];
     [super dealloc];
 }
 
