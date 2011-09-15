@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "RootViewController.h"
+#import "Constants.h"
 
-@interface DetailViewController : UIViewController <UIScrollViewDelegate> {    
+@interface DetailViewController : UIViewController <UIScrollViewDelegate> {  
     UIScrollView *imagescrollView;
     UIPageControl *pageControl;
     UILabel *label;
@@ -41,4 +44,6 @@
 - (void)settoolbar;
 - (void)setImage;
 
+- (void)reloadPage:(NSNotification*)notification;
+ 
 @end
