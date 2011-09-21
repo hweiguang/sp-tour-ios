@@ -59,6 +59,15 @@
         [self.title isEqualToString:@"Station 6"] ||
         [self.title isEqualToString:@"Station 9"]) {
         
+        MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:imageView];
+        [imageView addSubview:HUD];
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LeftArrow.png"]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        HUD.labelText = @"Swipe to reveal more";
+        [HUD show:YES];
+        [HUD hide:YES afterDelay:1.5];
+        [HUD release];
+        
         NSString *imageName = [self.title stringByAppendingString:@".jpg"];
         imageView.image = [UIImage imageNamed:imageName];
         imageName = [self.title stringByAppendingString:@"A.jpg"];

@@ -275,7 +275,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager
 	didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation {    
+           fromLocation:(CLLocation *)oldLocation {   
     // Getting the location coordinate
     userlat = newLocation.coordinate.latitude;
     userlon = newLocation.coordinate.longitude; 
@@ -333,7 +333,12 @@
         distanceLabel.tag = 3;
         
         //Image showing the location
-        locationImage = [[[UIImageView alloc]initWithFrame:CGRectMake(10, 45, 145, 100)]autorelease];
+        locationImage = [[[UIImageView alloc]initWithFrame:CGRectMake(10, 45, 145, 90)]autorelease];
+        locationImage.layer.masksToBounds = YES;
+        locationImage.layer.cornerRadius = 15;
+        locationImage.layer.borderWidth = 3;
+        locationImage.layer.borderColor = [UIColor grayColor].CGColor;
+        locationImage.tag = 3;
         locationImage.tag = 4;
         
         //Description on the POI
@@ -341,7 +346,7 @@
         description.lineBreakMode = UILineBreakModeWordWrap;
         description.numberOfLines = 0;
         description.font = [UIFont fontWithName:@"Helvetica" size:14.0];
-        description.frame = CGRectMake(160, 45, 160, 100);
+        description.frame = CGRectMake(160, 45, 160, 90);
         description.tag = 5;
         
         //Compass Heading Image    
@@ -384,41 +389,39 @@
     if (userlat == 0 || userlon == 0)
         distanceLabel.text = @"N/A";
     else {
-        for (int i=0; i<[self.data count]; i++) {
-            double lat = [aPOIObjects.lat doubleValue];
-            double lon = [aPOIObjects.lon doubleValue];
-            
-            CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
-            
-            //Calculating distance from user to POI
-            CLLocationDistance distance = [userLocation distanceFromLocation:location];
-            NSString *distanceString = [NSString stringWithFormat:@"%.0f",distance];
-            distanceString = [distanceString stringByAppendingString:@"m"];
-            
-            //Calculating the direction to POI
-            CLLocationCoordinate2D coord1 = userLocation.coordinate;
-            CLLocationCoordinate2D coord2 = location.coordinate;
-            
-            CLLocationDegrees deltaLong = coord2.longitude - coord1.longitude;
-            CLLocationDegrees yComponent = sin(deltaLong) * cos(coord2.latitude);
-            CLLocationDegrees xComponent = (cos(coord1.latitude) * sin(coord2.latitude)) - (sin(coord1.latitude) * cos(coord2.latitude) * cos(deltaLong));
-            
-            CLLocationDegrees radians = atan2(yComponent, xComponent);
-            CLLocationDegrees degrees = RAD_TO_DEG(radians) + 360;
-            
-            double angle = ((degrees - locationManager.heading.trueHeading)*(3.14/180));
-            [location release];
-            
-            distanceLabel.text = distanceString;
-            [compassHeading setTransform:CGAffineTransformMakeRotation(angle)];
-        }
+        double lat = [aPOIObjects.lat doubleValue];
+        double lon = [aPOIObjects.lon doubleValue];
+        
+        CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
+        
+        //Calculating distance from user to POI
+        CLLocationDistance distance = [userLocation distanceFromLocation:location];
+        NSString *distanceString = [NSString stringWithFormat:@"%.0f",distance];
+        distanceString = [distanceString stringByAppendingString:@"m"];
+        
+        //Calculating the direction to POI
+        CLLocationCoordinate2D coord1 = userLocation.coordinate;
+        CLLocationCoordinate2D coord2 = location.coordinate;
+        
+        CLLocationDegrees deltaLong = coord2.longitude - coord1.longitude;
+        CLLocationDegrees yComponent = sin(deltaLong) * cos(coord2.latitude);
+        CLLocationDegrees xComponent = (cos(coord1.latitude) * sin(coord2.latitude)) - (sin(coord1.latitude) * cos(coord2.latitude) * cos(deltaLong));
+        
+        CLLocationDegrees radians = atan2(yComponent, xComponent);
+        CLLocationDegrees degrees = RAD_TO_DEG(radians) + 360;
+        
+        double angle = ((degrees - locationManager.heading.trueHeading)*(3.14/180));
+        [location release];
+        
+        distanceLabel.text = distanceString;
+        [compassHeading setTransform:CGAffineTransformMakeRotation(angle)];
     }   
     [userLocation release];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 150;
+    return 145;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

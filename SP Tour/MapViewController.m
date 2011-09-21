@@ -239,7 +239,7 @@
     detailViewController.livecam = livecam;
     detailViewController.subtitle = subtitle;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
         backbutton.title = @"Back";
         self.navigationItem.backBarButtonItem = backbutton;
