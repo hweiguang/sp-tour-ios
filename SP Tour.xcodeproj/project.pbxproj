@@ -43,6 +43,7 @@
 		870DBEB6141F41710043E617 /* Panorama.png in Resources */ = {isa = PBXBuildFile; fileRef = 870DBE87141F41700043E617 /* Panorama.png */; };
 		870DBEC1141F41ED0043E617 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870DBEBF141F41ED0043E617 /* DetailViewController.m */; };
 		87157580141F5323003DA759 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8715757F141F5323003DA759 /* MessageUI.framework */; };
+		8761252B142883FC00D081F1 /* LeftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8761252A142883FC00D081F1 /* LeftArrow.png */; };
 		876CC5FA142039F5008FA978 /* LiveCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876CC5F8142039F5008FA978 /* LiveCamViewController.m */; };
 		876CC5FB142039F5008FA978 /* LiveCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876CC5F9142039F5008FA978 /* LiveCamViewController.xib */; };
 		87759395142076130087722A /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87759393142076130087722A /* WebViewController.m */; };
@@ -212,6 +213,7 @@
 		870DBEBF141F41ED0043E617 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		870DBEC6141F42590043E617 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		8715757F141F5323003DA759 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8761252A142883FC00D081F1 /* LeftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftArrow.png; sourceTree = "<group>"; };
 		876CC5F7142039F5008FA978 /* LiveCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveCamViewController.h; sourceTree = "<group>"; };
 		876CC5F8142039F5008FA978 /* LiveCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveCamViewController.m; sourceTree = "<group>"; };
 		876CC5F9142039F5008FA978 /* LiveCamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LiveCamViewController.xib; path = "SP Tour/LiveCamViewController.xib"; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		870DBE53141F41700043E617 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8761252A142883FC00D081F1 /* LeftArrow.png */,
 				870DBE54141F41700043E617 /* aboutData.html */,
 				870DBE55141F41700043E617 /* App Icons */,
 				870DBE5D141F41700043E617 /* ArcGIS Esri */,
@@ -986,6 +989,7 @@
 				876CC5FB142039F5008FA978 /* LiveCamViewController.xib in Resources */,
 				87759396142076130087722A /* WebViewController.xib in Resources */,
 				87D5787214209C1900E1F65B /* AboutViewController.xib in Resources */,
+				8761252B142883FC00D081F1 /* LeftArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "Constants.h"
+#import "MBProgressHUD.h"
 
 @interface DetailViewController : UIViewController <UIScrollViewDelegate> {  
     UIScrollView *imagescrollView;
