@@ -27,7 +27,20 @@
         self.graphicsLayer = nil;
     if (!self.CalloutTemplate)
         self.CalloutTemplate = nil;
+    [locationManager release];
     [super dealloc];
+}
+
+- (void)locationManager:(CLLocationManager *)manager 
+    didUpdateToLocation:(CLLocation *)newLocation 
+           fromLocation:(CLLocation *)oldLocation {
+    if (!mapLoaded)
+        return;
+    //If user location is displayed when accuracy is poor, the map will become unreponsive and has high chances of crashing. Therefore we makes sure we have a accuracy of 100m first before displaying.
+    if (newLocation.horizontalAccuracy <= 100)
+        [self.mapView.gps start]; //Display user location
+    else
+        [self.mapView.gps stop]; //Hide user location
 }
 
 - (void)showCallout:(NSNotification*)notification {
@@ -75,6 +88,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Setting up locationManager
+    locationManager = [[CLLocationManager alloc]init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter =  kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
     
     loading = [[MBProgressHUD alloc]initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:loading];
@@ -139,7 +159,6 @@
     [self loadPoints];
     mapLoaded = YES;
     [loading hide:YES];
-    [self.mapView.gps start];
 }
 
 - (void)loadPoints {
@@ -204,9 +223,9 @@
         
         //create the graphic
         AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
-                                                symbol:marker
-                                            attributes:attribs
-                                  infoTemplateDelegate:self.CalloutTemplate];
+                                                            symbol:marker
+                                                        attributes:attribs
+                                              infoTemplateDelegate:self.CalloutTemplate];
         
         //add the graphic to the graphics layer
         [self.graphicsLayer addGraphic:graphic];

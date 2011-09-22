@@ -23,10 +23,14 @@
 - (void)dealloc {
     [wikitudeAR release];
     [locationManager release];
-    [self.data release];
-    [self.toolbar release];
-    [self.tableView release];
+    [_data release];
+    [_tableView release];
     [super dealloc];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [locationManager stopUpdatingHeading];
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)viewDidLoad
@@ -95,7 +99,6 @@
         self.navigationItem.rightBarButtonItem = nil;
         self.toolbar.frame = CGRectMake(0, 916, 320, 44);
     }
-    [self.tableView reloadData];
     [self loadData];
 }
 
@@ -150,6 +153,7 @@
     }
     // release resources
     [tbxml release];
+    [self.tableView reloadData];
 }
 
 - (void)showAbout {
