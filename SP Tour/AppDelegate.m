@@ -18,11 +18,6 @@
 - (void)dealloc
 {
     [_window release];
-    [self.rootViewController release];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [self.splitViewController release];
-        [self.mapViewController release];
-    }
     [super dealloc];
 }
 
@@ -39,9 +34,8 @@
 }
 
 - (void)setupiPhone {
-    UINavigationController *_navigationController;
-    self.rootViewController = [[RootViewController alloc]init];
-    _navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
+    self.rootViewController = [[[RootViewController alloc]init]autorelease];
+    UINavigationController *_navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
     _navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.window.rootViewController = self.rootViewController;
     [self.window addSubview:_navigationController.view];
@@ -53,21 +47,21 @@
     
     UINavigationController *_navigationController;
     
-    self.rootViewController = [[RootViewController alloc]init];
+    self.rootViewController = [[[RootViewController alloc]init]autorelease];
     _navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
     _navigationController.navigationBar.tintColor = [UIColor blackColor];
     [viewControllers addObject:_navigationController];
     [_navigationController release];
     _navigationController = nil;
     
-    self.mapViewController = [[MapViewController alloc]init];
+    self.mapViewController = [[[MapViewController alloc]init]autorelease];
     _navigationController = [[UINavigationController alloc] initWithRootViewController:self.mapViewController];
     _navigationController.navigationBar.tintColor = [UIColor blackColor];
     [viewControllers addObject:_navigationController];
     [_navigationController release];
     _navigationController = nil;
     
-    self.splitViewController = [[MGSplitViewController alloc]init];
+    self.splitViewController = [[[MGSplitViewController alloc]init]autorelease];
     self.splitViewController.viewControllers = viewControllers;
     [viewControllers release];
     viewControllers = nil;

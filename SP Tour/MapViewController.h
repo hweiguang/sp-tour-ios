@@ -16,6 +16,8 @@
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
     
+    CLLocationManager *locationManager;
+    
     BOOL mapLoaded;
     
     MBProgressHUD *loading; 

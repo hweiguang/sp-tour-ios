@@ -65,7 +65,7 @@
         HUD.mode = MBProgressHUDModeCustomView;
         HUD.labelText = @"Swipe to reveal more";
         [HUD show:YES];
-        [HUD hide:YES afterDelay:1.5];
+        [HUD hide:YES afterDelay:1.0];
         [HUD release];
         
         NSString *imageName = [self.title stringByAppendingString:@".jpg"];
