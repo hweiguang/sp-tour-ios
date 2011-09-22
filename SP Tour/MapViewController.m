@@ -83,6 +83,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)viewDidLoad
