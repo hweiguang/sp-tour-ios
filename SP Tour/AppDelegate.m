@@ -23,9 +23,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    self.window.backgroundColor = [UIColor whiteColor];
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         [self setupiPhone];
     else
@@ -37,7 +34,6 @@
     self.rootViewController = [[[RootViewController alloc]init]autorelease];
     UINavigationController *_navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
     _navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.window.rootViewController = self.rootViewController;
     [self.window addSubview:_navigationController.view];
     [self.window makeKeyAndVisible];
 }
@@ -66,8 +62,6 @@
     [viewControllers release];
     viewControllers = nil;
     self.splitViewController.showsMasterInPortrait = YES;
-    self.window.rootViewController = self.splitViewController;
-    
     [self.window addSubview:self.splitViewController.view];
     [self.window makeKeyAndVisible];
 }

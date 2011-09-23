@@ -59,21 +59,11 @@
         [self.title isEqualToString:@"Station 6"] ||
         [self.title isEqualToString:@"Station 9"]) {
         
-        MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:imageView];
-        [imageView addSubview:HUD];
-        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LeftArrow.png"]] autorelease];
-        HUD.mode = MBProgressHUDModeCustomView;
-        HUD.labelText = @"Swipe to reveal more";
-        [HUD show:YES];
-        [HUD hide:YES afterDelay:1.0];
-        [HUD release];
-        
         NSString *imageName = [self.title stringByAppendingString:@".jpg"];
         imageView.image = [UIImage imageNamed:imageName];
         imageName = [self.title stringByAppendingString:@"A.jpg"];
         imageViewA.image = [UIImage imageNamed:imageName];
         pageControl.numberOfPages = 2;
-        [self.view addSubview:pageControl];
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
             imagescrollView.contentSize = CGSizeMake(447*2,280);
@@ -81,79 +71,84 @@
             imagescrollView.contentSize = CGSizeMake(320*2,200);
     }
     else {
-        [pageControl removeFromSuperview];
-        
+        pageControl.numberOfPages = 1;
         NSString *imageName = [self.title stringByAppendingString:@".jpg"];
         imageView.image = [UIImage imageNamed:imageName];
-        imagescrollView.contentSize = CGSizeMake(320,200);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            imagescrollView.contentSize = CGSizeMake(447,280);
+        else
+            imagescrollView.contentSize = CGSizeMake(320,200);
     }
 }
 
-- (void)loadiPhone {
-    label = [[UILabel alloc]initWithFrame:CGRectMake(10,205,300,250)];
-    label.numberOfLines = 0;
+- (void)loadUI {
+    toolbar = [UIToolbar new];
+    toolbar.barStyle = UIBarStyleBlack;
+    [self.view addSubview:toolbar];
     
+    label = [[UILabel alloc]init];
+    label.numberOfLines = 0;
     self.subtitle = [self.subtitle stringByAppendingString:@"\n"];
     label.text = [self.subtitle stringByAppendingString:self.description];
-    
-    CGRect currentFrame = label.frame;    
-    CGSize max = CGSizeMake(300, 10000);
-    CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
-    currentFrame.size.height = expected.height ;
-    label.frame = currentFrame;
     [self.view addSubview:label];
     
-    imagescrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 200)];
+    imagescrollView = [[UIScrollView alloc]init];
     imagescrollView.pagingEnabled = YES;
     imagescrollView.showsHorizontalScrollIndicator = NO;
     imagescrollView.showsVerticalScrollIndicator = NO;
     imagescrollView.scrollsToTop = NO;
     imagescrollView.delegate = self;
     
-    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 200)];    
+    imageView = [[UIImageView alloc]init];    
     [imagescrollView addSubview:imageView];
     
-    imageViewA = [[UIImageView alloc]initWithFrame:CGRectMake(320, 0, 320, 200)];    
+    imageViewA = [[UIImageView alloc]init];    
     [imagescrollView addSubview:imageViewA];
     
     [self.view addSubview:imagescrollView];
     
-    pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(140, 170, 40, 30)];
-    
+    pageControl = [[UIPageControl alloc]init];
+    pageControl.backgroundColor = [UIColor lightGrayColor];
     [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
-}
-
-- (void)loadiPad {
-    label = [[UILabel alloc]initWithFrame:CGRectMake(5,290,437,850)];
-    label.numberOfLines = 0;
-    self.subtitle = [self.subtitle stringByAppendingString:@"\n"];
-    label.text = [self.subtitle stringByAppendingString:self.description];
+    [self.view addSubview:pageControl];
     
-    CGRect currentFrame = label.frame;    
-    CGSize max = CGSizeMake(437, 10000);
-    CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
-    currentFrame.size.height = expected.height ;
-    label.frame = currentFrame;
-    [self.view addSubview:label];
-    
-    imagescrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 447, 280)];
-    imagescrollView.pagingEnabled = YES;
-    imagescrollView.showsHorizontalScrollIndicator = NO;
-    imagescrollView.showsVerticalScrollIndicator = NO;
-    imagescrollView.scrollsToTop = NO;
-    imagescrollView.delegate = self;
-    
-    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 447, 280)];
-    [imagescrollView addSubview:imageView];
-    
-    imageViewA = [[UIImageView alloc]initWithFrame:CGRectMake(447, 0, 447, 280)];    
-    [imagescrollView addSubview:imageViewA];
-    
-    [self.view addSubview:imagescrollView];
-    
-    pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(220, 250, 40, 30)];
-    
-    [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        label.frame = CGRectMake(5,315,437,850);        
+        CGRect currentFrame = label.frame;    
+        CGSize max = CGSizeMake(437, 10000);
+        CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
+        currentFrame.size.height = expected.height ;
+        label.frame = currentFrame;
+        
+        imagescrollView.frame = CGRectMake(0, 0, 447, 280);
+        imageView.frame = CGRectMake(0, 0, 447, 280);
+        imageViewA.frame = CGRectMake(447, 0, 447, 280);
+        pageControl.frame = CGRectMake(0, 280, 768, 30);
+        toolbar.frame = CGRectMake(0, 916, 447, 44);
+    }
+    else {
+        label.frame = CGRectMake(5,235,310,850);
+        CGRect currentFrame = label.frame;    
+        CGSize max = CGSizeMake(310, 10000);
+        CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
+        currentFrame.size.height = expected.height ;
+        label.frame = currentFrame;
+        
+        imagescrollView.frame = CGRectMake(0, 0, 320, 200);
+        imageView.frame = CGRectMake(0, 0, 320, 200);
+        imageViewA.frame = CGRectMake(320, 0, 320, 200);
+        pageControl.frame = CGRectMake(0, 200, 320, 30);  
+        toolbar.frame = CGRectMake(0, 372, 320, 44);
+        
+        if (![self.title isEqualToString:@"Station 10"]) {
+            UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" 
+                                                                           style:UIBarButtonItemStylePlain 
+                                                                          target:self 
+                                                                          action:@selector(NextStation:)];
+            self.navigationItem.rightBarButtonItem = nextButton;
+            [nextButton release];
+        }
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -171,34 +166,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    toolbar = [UIToolbar new];
-    toolbar.barStyle = UIBarStyleBlack;
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        toolbar.frame = CGRectMake(0, 372, 320, 44);
-        
-        if (![self.title isEqualToString:@"Station 10"]) {
-            UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" 
-                                                                           style:UIBarButtonItemStylePlain 
-                                                                          target:self 
-                                                                          action:@selector(NextStation:)];
-            self.navigationItem.rightBarButtonItem = nextButton;
-            [nextButton release];
-        }
-        
-        [self loadiPhone];
-    }
-    else {
-        toolbar.frame = CGRectMake(0, 916, 447, 44);
-        [self loadiPad];
-    }
-    
-    [self.view addSubview:toolbar];
-    
+    [self loadUI];
     [self settoolbar];
     [self setImage];
 }
+
 
 - (void)settoolbar {
     NSMutableArray *items = [[NSMutableArray alloc]init];
@@ -325,13 +297,8 @@
     self.subtitle = [self.subtitle stringByAppendingString:@"\n"];
     label.text = [self.subtitle stringByAppendingString:self.description];
     
-    CGSize max;
-    
     CGRect currentFrame = label.frame;    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        max = CGSizeMake(758, 10000);
-    else
-        max = CGSizeMake(300, 10000);
+    CGSize max = CGSizeMake(310, 10000);
     
     CGSize expected = [label.text sizeWithFont:label.font constrainedToSize:max lineBreakMode:UILineBreakModeWordWrap]; 
     currentFrame.size.height = expected.height;
@@ -358,7 +325,7 @@
     frame.size = imagescrollView.frame.size;
     [imagescrollView scrollRectToVisible:frame animated:YES];
 }
- 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
