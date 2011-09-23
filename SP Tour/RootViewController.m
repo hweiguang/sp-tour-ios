@@ -28,7 +28,12 @@
     [super dealloc];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
+    [locationManager startUpdatingLocation];
+    [locationManager startUpdatingHeading];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
     [locationManager stopUpdatingHeading];
     [locationManager stopUpdatingLocation];
 }
@@ -342,7 +347,6 @@
         locationImage.layer.cornerRadius = 15;
         locationImage.layer.borderWidth = 3;
         locationImage.layer.borderColor = [UIColor grayColor].CGColor;
-        locationImage.tag = 3;
         locationImage.tag = 4;
         
         //Description on the POI

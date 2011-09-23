@@ -18,9 +18,6 @@
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    if (!operationQueue)
-        operationQueue = [[NSOperationQueue alloc] init];
-    
     [self grabImageInTheBackground];
     
     self.contentSizeForViewInPopover = CGSizeMake(320, 400); //For iPad only
@@ -42,9 +39,7 @@
         NSURL *url = [NSURL URLWithString:imglink];
         request = [[ASIHTTPRequest alloc] initWithURL:url];
         [request setDelegate:self];
-        [request setDidFinishSelector:@selector(requestDone:)];
-        [request setDidFailSelector:@selector(requestWentWrong:)];
-        [operationQueue addOperation:request];  // request is an NSOperationQueue
+        [request startAsynchronous]; // request is an NSOperationQueue
     }
     //  no photo defined, use default image not found
     else {
@@ -54,8 +49,7 @@
 }
 
 //  connected
-- (void)requestDone:(ASIHTTPRequest *)theRequest
-{
+- (void)requestFinished:(ASIHTTPRequest *)theRequest {
     NSData *responseData = [theRequest responseData];
     int statusCode = [theRequest responseStatusCode];
     
@@ -73,7 +67,7 @@
 }
 
 //  unable to connect, image not found; i.e use default image not found
-- (void)requestWentWrong:(ASIHTTPRequest *)theRequest {
+- (void)requestFailed:(ASIHTTPRequest *)theRequest  {
     //  set image not found
     imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];        
     [activity stopAnimating];
@@ -92,8 +86,6 @@
     [activity stopAnimating];
     [request clearDelegatesAndCancel];
     [request release];
-    [operationQueue cancelAllOperations];
-    [operationQueue release];
     [super dealloc];
 }
 

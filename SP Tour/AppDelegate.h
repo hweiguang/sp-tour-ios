@@ -15,13 +15,13 @@
 @class RootViewController;
 @class MGSplitViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate>  {
     MGSplitViewController *_splitViewController;
     RootViewController *_rootViewController;
     MapViewController *_mapViewController;
 }
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) MGSplitViewController *splitViewController;
 @property (nonatomic, retain) RootViewController *rootViewController;
 @property (nonatomic, retain) MapViewController *mapViewController;

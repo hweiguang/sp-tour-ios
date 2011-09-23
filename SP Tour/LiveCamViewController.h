@@ -15,7 +15,6 @@
     IBOutlet UITextView * textView;
     NSDictionary *details;
     ASIHTTPRequest *request; 
-    NSOperationQueue *operationQueue;
 }
 
 @property (nonatomic, retain) UIActivityIndicatorView *activity;

@@ -39,12 +39,11 @@
 - (void)showPanorama:(id)sender;
 - (void)showLiveCam:(id)sender;
 
-- (void)loadiPhone;
-- (void)loadiPad;
+- (void)loadUI;
 
 - (void)settoolbar;
 - (void)setImage;
 
 - (void)reloadPage:(NSNotification*)notification;
- 
+
 @end

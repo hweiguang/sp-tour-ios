@@ -43,6 +43,7 @@
 		870DBEB6141F41710043E617 /* Panorama.png in Resources */ = {isa = PBXBuildFile; fileRef = 870DBE87141F41700043E617 /* Panorama.png */; };
 		870DBEC1141F41ED0043E617 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870DBEBF141F41ED0043E617 /* DetailViewController.m */; };
 		87157580141F5323003DA759 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8715757F141F5323003DA759 /* MessageUI.framework */; };
+		87489EEF142C2DEA0020D27C /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87489EEE142C2DEA0020D27C /* MainWindow-iPad.xib */; };
 		8761252B142883FC00D081F1 /* LeftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8761252A142883FC00D081F1 /* LeftArrow.png */; };
 		876CC5FA142039F5008FA978 /* LiveCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876CC5F8142039F5008FA978 /* LiveCamViewController.m */; };
 		876CC5FB142039F5008FA978 /* LiveCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876CC5F9142039F5008FA978 /* LiveCamViewController.xib */; };
@@ -155,6 +156,7 @@
 		879CB60B141F40990010D777 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879CB60A141F40990010D777 /* MediaPlayer.framework */; };
 		879CB60D141F40BD0010D777 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 879CB60C141F40BD0010D777 /* libsqlite3.0.dylib */; };
 		879CB610141F410F0010D777 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879CB60F141F410F0010D777 /* RootViewController.m */; };
+		87A67DD2142C283800BBEEF0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A67DD1142C283800BBEEF0 /* MainWindow.xib */; };
 		87B1BA86141F4F460079DD03 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B1BA84141F4F460079DD03 /* MapViewController.m */; };
 		87B1BA87141F4F460079DD03 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B1BA85141F4F460079DD03 /* MapViewController.xib */; };
 		87D5787114209C1900E1F65B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D5786F14209C1900E1F65B /* AboutViewController.m */; };
@@ -214,6 +216,7 @@
 		870DBEBF141F41ED0043E617 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		870DBEC6141F42590043E617 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		8715757F141F5323003DA759 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		87489EEE142C2DEA0020D27C /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "SP Tour/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		8761252A142883FC00D081F1 /* LeftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftArrow.png; sourceTree = "<group>"; };
 		876CC5F7142039F5008FA978 /* LiveCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveCamViewController.h; sourceTree = "<group>"; };
 		876CC5F8142039F5008FA978 /* LiveCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveCamViewController.m; sourceTree = "<group>"; };
@@ -359,6 +362,7 @@
 		879CB60C141F40BD0010D777 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		879CB60E141F410F0010D777 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		879CB60F141F410F0010D777 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		87A67DD1142C283800BBEEF0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = "SP Tour/MainWindow.xib"; sourceTree = "<group>"; };
 		87B1BA83141F4F460079DD03 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		87B1BA84141F4F460079DD03 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		87B1BA85141F4F460079DD03 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = "SP Tour/MapViewController.xib"; sourceTree = "<group>"; };
@@ -489,6 +493,8 @@
 		8788DE3B141F571D00B3BB23 /* XIB Files */ = {
 			isa = PBXGroup;
 			children = (
+				87A67DD1142C283800BBEEF0 /* MainWindow.xib */,
+				87489EEE142C2DEA0020D27C /* MainWindow-iPad.xib */,
 				87B1BA85141F4F460079DD03 /* MapViewController.xib */,
 				876CC5F9142039F5008FA978 /* LiveCamViewController.xib */,
 				87759394142076130087722A /* WebViewController.xib */,
@@ -994,6 +1000,8 @@
 				87D5787214209C1900E1F65B /* AboutViewController.xib in Resources */,
 				8761252B142883FC00D081F1 /* LeftArrow.png in Resources */,
 				87F4E281142ACEAA009B78D5 /* UnavailableImage.png in Resources */,
+				87A67DD2142C283800BBEEF0 /* MainWindow.xib in Resources */,
+				87489EEF142C2DEA0020D27C /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,7 +1106,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SP Tour/SP Tour-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "SP Tour/SP Tour-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -1130,7 +1138,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SP Tour/SP Tour-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "SP Tour/SP Tour-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (

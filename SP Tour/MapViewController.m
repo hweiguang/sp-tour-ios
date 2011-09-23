@@ -44,7 +44,6 @@
 }
 
 - (void)showCallout:(NSNotification*)notification {
-    
     if (!mapLoaded)
         return;
     
@@ -78,6 +77,7 @@
                                                  selector:@selector(showCallout:)
                                                      name:@"showCallout"
                                                    object:nil];
+    [locationManager startUpdatingLocation];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -234,7 +234,6 @@
         //Redraw map
         [self.graphicsLayer dataChanged];
     }    
-    
     AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
                                                                  ymin:ymin
                                                                  xmax:xmax
