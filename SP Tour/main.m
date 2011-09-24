@@ -2,8 +2,8 @@
 //  main.m
 //  SP Tour
 //
-//  Created by Wei Guang on 13/9/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Richard Yip on 9/23/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

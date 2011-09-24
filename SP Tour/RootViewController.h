@@ -20,8 +20,6 @@
 @interface RootViewController : UIViewController <CLLocationManagerDelegate,WikitudeARViewControllerDelegate,UITableViewDelegate, UITableViewDataSource> {
     CLLocationManager *locationManager;
     NSMutableArray *_data;
-    double userlat;
-    double userlon;
     
     UITableView *_tableView;
     
@@ -38,6 +36,7 @@
 @property (nonatomic,retain) NSMutableArray *data;
 @property (nonatomic,retain) UIToolbar *toolbar;
 @property (nonatomic, retain) UITableView *tableView;
+@property BOOL shouldUpdateLocation;
 
 
 - (void)loadData;

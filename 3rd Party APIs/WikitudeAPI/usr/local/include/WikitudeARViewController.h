@@ -88,10 +88,6 @@
  */
 - (void) removePOIAtPosition: (int) position;
 
-/*!
- @abstract Add specified POIs to the Camera View.
- */
-- (void) setPOIs:(NSArray*) pois;
 
 /*!
  @abstract Remove POI from the Camera View.
