@@ -13,6 +13,7 @@
 @synthesize data = _data;
 @synthesize toolbar = _toolbar;
 @synthesize tableView = _tableView;
+@synthesize shouldUpdateLocation;
 
 #pragma mark - View lifecycle
 
@@ -59,10 +60,8 @@
     //Setting up locationManager
     locationManager = [[CLLocationManager alloc]init];
     locationManager.delegate = self;
-    locationManager.distanceFilter =  kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
-    [locationManager startUpdatingHeading];
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    locationManager.headingFilter = 10;
     
     //Adding toolbar to the bottom of the tableView
     self.toolbar = [UIToolbar new];
@@ -204,7 +203,7 @@
     else {
         [wikitudeAR show];
         
-        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[[UIApplication sharedApplication] delegate];
         ARbackButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [ARbackButton addTarget:self action:@selector(closeARView:)forControlEvents:UIControlEventTouchDown];
         [ARbackButton setTitle:@"Back" forState:UIControlStateNormal];
@@ -221,7 +220,7 @@
 }
 
 - (void) verificationDidSucceed {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.window addSubview:[wikitudeAR start]];
     ARbackButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [ARbackButton addTarget:self action:@selector(closeARView:)forControlEvents:UIControlEventTouchDown];
@@ -285,17 +284,20 @@
 - (void)locationManager:(CLLocationManager *)manager
 	didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {   
-    // Getting the location coordinate
-    userlat = newLocation.coordinate.latitude;
-    userlon = newLocation.coordinate.longitude; 
-    if (shouldUpdateLocation)
-        [self.tableView reloadData];
+    if (shouldUpdateLocation && ![CLLocationManager headingAvailable]) {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        [self.tableView reloadRowsAtIndexPaths: visiblePaths
+                              withRowAnimation: UITableViewRowAnimationNone];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
        didUpdateHeading:(CLHeading *)newHeading {
-    if (shouldUpdateLocation)
-        [self.tableView reloadData];
+    if (shouldUpdateLocation) {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        [self.tableView reloadRowsAtIndexPaths: visiblePaths
+                              withRowAnimation: UITableViewRowAnimationNone];
+    }
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
@@ -392,9 +394,7 @@
     
     description.text = aPOIObjects.description;
     
-    CLLocation *userLocation = [[CLLocation alloc]initWithLatitude:userlat
-                                                         longitude:userlon];
-    if (userlat == 0 || userlon == 0)
+    if (!locationManager.location)
         distanceLabel.text = @"N/A";
     else {
         double lat = [aPOIObjects.lat doubleValue];
@@ -403,12 +403,12 @@
         CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
         
         //Calculating distance from user to POI
-        CLLocationDistance distance = [userLocation distanceFromLocation:location];
+        CLLocationDistance distance = [locationManager.location distanceFromLocation:location];
         NSString *distanceString = [NSString stringWithFormat:@"%.0f",distance];
         distanceString = [distanceString stringByAppendingString:@"m"];
         
         //Calculating the direction to POI
-        CLLocationCoordinate2D coord1 = userLocation.coordinate;
+        CLLocationCoordinate2D coord1 = locationManager.location.coordinate;
         CLLocationCoordinate2D coord2 = location.coordinate;
         
         CLLocationDegrees deltaLong = coord2.longitude - coord1.longitude;
@@ -424,7 +424,6 @@
         distanceLabel.text = distanceString;
         [compassHeading setTransform:CGAffineTransformMakeRotation(angle)];
     }   
-    [userLocation release];
     return cell;
 }
 
@@ -433,8 +432,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    shouldUpdateLocation = NO;
     
     POIObjects * aPOIObjects = [self.data objectAtIndex:indexPath.row];
     

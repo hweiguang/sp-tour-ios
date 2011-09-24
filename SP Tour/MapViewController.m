@@ -27,20 +27,7 @@
         self.graphicsLayer = nil;
     if (!self.CalloutTemplate)
         self.CalloutTemplate = nil;
-    [locationManager release];
     [super dealloc];
-}
-
-- (void)locationManager:(CLLocationManager *)manager 
-    didUpdateToLocation:(CLLocation *)newLocation 
-           fromLocation:(CLLocation *)oldLocation {
-    if (!mapLoaded)
-        return;
-    //If user location is displayed when accuracy is poor, the map will become unreponsive and has high chances of crashing. Therefore we makes sure we have a accuracy of 100m first before displaying.
-    if (newLocation.horizontalAccuracy <= 100)
-        [self.mapView.gps start]; //Display user location
-    else
-        [self.mapView.gps stop]; //Hide user location
 }
 
 - (void)showCallout:(NSNotification*)notification {
@@ -69,6 +56,9 @@
     [self.mapView centerAtPoint:pt animated:YES];
     [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
     [graphic release];
+    
+    SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.rootViewController.shouldUpdateLocation = YES; 
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -77,25 +67,18 @@
                                                  selector:@selector(showCallout:)
                                                      name:@"showCallout"
                                                    object:nil];
-    [locationManager startUpdatingLocation];
+    [self.mapView.gps start];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [[NSNotificationCenter defaultCenter]removeObserver:self];
-    [locationManager stopUpdatingLocation];
+    [self.mapView.gps stop];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //Setting up locationManager
-    locationManager = [[CLLocationManager alloc]init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter =  kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
     
     loading = [[MBProgressHUD alloc]initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:loading];
@@ -166,7 +149,7 @@
     
     [self.graphicsLayer removeAllGraphics];
     
-    AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    SP_TourAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     NSMutableArray *data = appDelegate.rootViewController.data;
     

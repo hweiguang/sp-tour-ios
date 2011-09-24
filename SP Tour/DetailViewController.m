@@ -52,6 +52,9 @@
     
     [self setImage];
     [self settoolbar];
+    
+    SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.rootViewController.shouldUpdateLocation = YES; 
 }
 
 - (void)setImage {
@@ -214,7 +217,7 @@
     }
     else {
         
-        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
         
         appDelegate.splitViewController.modalPresentationStyle = UIModalPresentationFullScreen;
         [appDelegate.splitViewController presentModalViewController:webviewController animated:YES];
@@ -252,7 +255,7 @@
 }
 
 - (void)NextStation:(id)sender { 
-    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
     
     NSArray *data = appDelegate.rootViewController.data; 
     
@@ -315,6 +318,9 @@
     CGFloat pageWidth = _scrollView.frame.size.width;
     int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     pageControl.currentPage = page;
+    
+    SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.rootViewController.shouldUpdateLocation = NO; 
 }
 
 - (void)changePage:(id)sender {
@@ -324,6 +330,21 @@
     frame.origin.y = 0;
     frame.size = imagescrollView.frame.size;
     [imagescrollView scrollRectToVisible:frame animated:YES];
+    
+    SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.rootViewController.shouldUpdateLocation = NO; 
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
+        appDelegate.rootViewController.shouldUpdateLocation = YES; 
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.rootViewController.shouldUpdateLocation = YES; 
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

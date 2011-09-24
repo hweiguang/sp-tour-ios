@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+#import "SP_TourAppDelegate.h"
 #import "RootViewController.h"
 #import "Constants.h"
 #import "MBProgressHUD.h"

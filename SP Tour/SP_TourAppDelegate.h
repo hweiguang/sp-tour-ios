@@ -1,9 +1,9 @@
 //
-//  AppDelegate.h
+//  SP_TourAppDelegate.h
 //  SP Tour
 //
-//  Created by Wei Guang on 13/9/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Richard Yip on 9/23/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,7 +15,7 @@
 @class RootViewController;
 @class MGSplitViewController;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate>  {
+@interface SP_TourAppDelegate : NSObject <UIApplicationDelegate> {
     MGSplitViewController *_splitViewController;
     RootViewController *_rootViewController;
     MapViewController *_mapViewController;

@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ArcGIS.h"
-#import "AppDelegate.h"
+#import "SP_TourAppDelegate.h"
 #import "RootViewController.h"
 
 @interface MapViewController : UIViewController <AGSMapViewCalloutDelegate,AGSMapViewLayerDelegate,CLLocationManagerDelegate> {
     AGSMapView *_mapView;
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
-    
-    CLLocationManager *locationManager;
     
     BOOL mapLoaded;
     
