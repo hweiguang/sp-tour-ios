@@ -201,6 +201,7 @@
                                                           developerName:wktdeveloperName];	  
     }
     else {
+        shouldUpdateLocation = NO;
         [wikitudeAR show];
         
         SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -214,12 +215,14 @@
 
 #pragma mark Wikitude Delegate Methods
 - (IBAction)closeARView:(id)sender {
+    shouldUpdateLocation = YES;
     [wikitudeAR hide];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [ARbackButton removeFromSuperview];
 }
 
 - (void) verificationDidSucceed {
+    shouldUpdateLocation = NO;
     SP_TourAppDelegate *appDelegate = (SP_TourAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.window addSubview:[wikitudeAR start]];
     ARbackButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
