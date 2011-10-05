@@ -215,6 +215,7 @@
 
 #pragma mark Wikitude Delegate Methods
 - (IBAction)closeARView:(id)sender {
+    self.navigationController.view.frame = CGRectMake(0, 0, 320, 480);
     shouldUpdateLocation = YES;
     [wikitudeAR hide];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -335,14 +336,16 @@
         
         //Secondary Label for the subtitle
         secondaryLabel = [[[UILabel alloc]init]autorelease];
-        secondaryLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+        secondaryLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14.0];
         secondaryLabel.frame = CGRectMake(10,25,250,15);
         secondaryLabel.tag = 2;
         
         //Distance Label for displaying distance from user location to POI
         distanceLabel = [[[UILabel alloc]init]autorelease];
+        distanceLabel.textColor = [UIColor blueColor];
         distanceLabel.textAlignment = UITextAlignmentCenter;
-        distanceLabel.adjustsFontSizeToFitWidth = YES;
+        //distanceLabel.adjustsFontSizeToFitWidth = YES;
+        distanceLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
         distanceLabel.frame = CGRectMake(225,8,50,15);
         distanceLabel.tag = 3;
         
