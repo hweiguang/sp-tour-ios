@@ -37,6 +37,7 @@
 @property (nonatomic,retain) UIToolbar *toolbar;
 @property (nonatomic, retain) UITableView *tableView;
 @property BOOL shouldUpdateLocation;
+@property BOOL resetViews;
 
 
 - (void)loadData;
