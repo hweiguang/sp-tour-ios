@@ -30,12 +30,17 @@
     return YES;
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application {
+    self.rootViewController.resetViews = YES;
+}
+
 - (void)setupiPhone {
     self.rootViewController = [[[RootViewController alloc]init]autorelease];
     UINavigationController *_navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
     _navigationController.navigationBar.tintColor = [UIColor blackColor];
     [self.window addSubview:_navigationController.view];
     [self.window makeKeyAndVisible];
+    self.rootViewController.resetViews = NO;
 }
 
 - (void)setupiPad {

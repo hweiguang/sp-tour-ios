@@ -14,6 +14,7 @@
 @synthesize toolbar = _toolbar;
 @synthesize tableView = _tableView;
 @synthesize shouldUpdateLocation;
+@synthesize resetViews;
 
 #pragma mark - View lifecycle
 
@@ -215,11 +216,14 @@
 
 #pragma mark Wikitude Delegate Methods
 - (IBAction)closeARView:(id)sender {
-    self.navigationController.view.frame = CGRectMake(0, 0, 320, 480);
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     shouldUpdateLocation = YES;
     [wikitudeAR hide];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [ARbackButton removeFromSuperview];
+    if (self.resetViews) {
+        self.navigationController.view.frame = CGRectMake(0, 20, 320, 460);
+        self.resetViews = NO;
+    }
 }
 
 - (void) verificationDidSucceed {
