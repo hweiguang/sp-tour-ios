@@ -114,7 +114,6 @@
 		82C7E923142C68D10051D8CF /* custom_menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E8D8142C68D10051D8CF /* custom_menu_button.png */; };
 		82C7E924142C68D10051D8CF /* custom_menu_button_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E8D9142C68D10051D8CF /* custom_menu_button_sel.png */; };
 		82C7E925142C68D10051D8CF /* icon-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E8DA142C68D10051D8CF /* icon-grey.png */; };
-		82C7E926142C68D10051D8CF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E8DB142C68D10051D8CF /* icon.png */; };
 		82C7E927142C68D10051D8CF /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E8DC142C68D10051D8CF /* left.png */; };
 		82C7E928142C68D10051D8CF /* left_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E8DD142C68D10051D8CF /* left_sel.png */; };
 		82C7E929142C68D10051D8CF /* leftArrowIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E8DE142C68D10051D8CF /* leftArrowIndicator.png */; };
@@ -172,6 +171,9 @@
 		82C7E95D142C68D10051D8CF /* VSToolbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E915142C68D10051D8CF /* VSToolbarViewController.xib */; };
 		82C7E95E142C68D10051D8CF /* VSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C7E916142C68D10051D8CF /* VSWebViewController.xib */; };
 		82C7E961142C68EC0051D8CF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C7E960142C68EC0051D8CF /* MessageUI.framework */; };
+		8347F41514451D0200633F43 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8394D938143EC81A00622E8B /* Icon.png */; };
+		8394D933143EC6A600622E8B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8394D932143EC6A600622E8B /* Icon@2x.png */; };
+		8394D935143EC6BF00622E8B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8394D934143EC6BF00622E8B /* Icon-72.png */; };
 		87738953142C876300BAD6F3 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87738952142C876300BAD6F3 /* libz.1.2.5.dylib */; };
 		87738955142C876C00BAD6F3 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87738954142C876C00BAD6F3 /* libstdc++.dylib */; };
 /* End PBXBuildFile section */
@@ -321,7 +323,6 @@
 		82C7E8D8142C68D10051D8CF /* custom_menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_menu_button.png; sourceTree = "<group>"; };
 		82C7E8D9142C68D10051D8CF /* custom_menu_button_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_menu_button_sel.png; sourceTree = "<group>"; };
 		82C7E8DA142C68D10051D8CF /* icon-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-grey.png"; sourceTree = "<group>"; };
-		82C7E8DB142C68D10051D8CF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		82C7E8DC142C68D10051D8CF /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		82C7E8DD142C68D10051D8CF /* left_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_sel.png; sourceTree = "<group>"; };
 		82C7E8DE142C68D10051D8CF /* leftArrowIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrowIndicator.png; sourceTree = "<group>"; };
@@ -379,6 +380,9 @@
 		82C7E915142C68D10051D8CF /* VSToolbarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSToolbarViewController.xib; sourceTree = "<group>"; };
 		82C7E916142C68D10051D8CF /* VSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSWebViewController.xib; sourceTree = "<group>"; };
 		82C7E960142C68EC0051D8CF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8394D932143EC6A600622E8B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		8394D934143EC6BF00622E8B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		8394D938143EC81A00622E8B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		87738952142C876300BAD6F3 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		87738954142C876C00BAD6F3 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -414,6 +418,9 @@
 		82ABB3F6142C58300043E833 = {
 			isa = PBXGroup;
 			children = (
+				8394D938143EC81A00622E8B /* Icon.png */,
+				8394D934143EC6BF00622E8B /* Icon-72.png */,
+				8394D932143EC6A600622E8B /* Icon@2x.png */,
 				82ABB40B142C58300043E833 /* SP Tour */,
 				82ABB423142C58710043E833 /* XIB Files */,
 				82ABB40C142C58300043E833 /* Supporting Files */,
@@ -740,7 +747,6 @@
 				82C7E8D8142C68D10051D8CF /* custom_menu_button.png */,
 				82C7E8D9142C68D10051D8CF /* custom_menu_button_sel.png */,
 				82C7E8DA142C68D10051D8CF /* icon-grey.png */,
-				82C7E8DB142C68D10051D8CF /* icon.png */,
 				82C7E8DC142C68D10051D8CF /* left.png */,
 				82C7E8DD142C68D10051D8CF /* left_sel.png */,
 				82C7E8DE142C68D10051D8CF /* leftArrowIndicator.png */,
@@ -943,7 +949,6 @@
 				82C7E923142C68D10051D8CF /* custom_menu_button.png in Resources */,
 				82C7E924142C68D10051D8CF /* custom_menu_button_sel.png in Resources */,
 				82C7E925142C68D10051D8CF /* icon-grey.png in Resources */,
-				82C7E926142C68D10051D8CF /* icon.png in Resources */,
 				82C7E927142C68D10051D8CF /* left.png in Resources */,
 				82C7E928142C68D10051D8CF /* left_sel.png in Resources */,
 				82C7E929142C68D10051D8CF /* leftArrowIndicator.png in Resources */,
@@ -999,6 +1004,9 @@
 				82C7E95C142C68D10051D8CF /* VSPOIDetailViewController.xib in Resources */,
 				82C7E95D142C68D10051D8CF /* VSToolbarViewController.xib in Resources */,
 				82C7E95E142C68D10051D8CF /* VSWebViewController.xib in Resources */,
+				8394D933143EC6A600622E8B /* Icon@2x.png in Resources */,
+				8394D935143EC6BF00622E8B /* Icon-72.png in Resources */,
+				8347F41514451D0200633F43 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1070,7 +1078,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1088,6 +1100,7 @@
 				HEADER_SEARCH_PATHS = "$HOME/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/**";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -1097,8 +1110,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Singapore Polytechnic";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Singapore Polytechnic";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1109,6 +1126,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/**";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "BE568A52-3612-4423-B987-D305474ADFAB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BE568A52-3612-4423-B987-D305474ADFAB";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -1123,7 +1142,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$HOME/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				INFOPLIST_FILE = "SP Tour/SP Tour-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/**",
 					"\"$(SRCROOT)/3rd Party APIs/WikitudeAPI\"",
@@ -1143,12 +1162,13 @@
 		82ABB41E142C58310043E833 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SP Tour/SP Tour-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$HOME/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				INFOPLIST_FILE = "SP Tour/SP Tour-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/**",
 					"\"$(SRCROOT)/3rd Party APIs/WikitudeAPI\"",
@@ -1159,6 +1179,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7C2AC758-C55A-40E7-AB61-57FBDE83E762";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
